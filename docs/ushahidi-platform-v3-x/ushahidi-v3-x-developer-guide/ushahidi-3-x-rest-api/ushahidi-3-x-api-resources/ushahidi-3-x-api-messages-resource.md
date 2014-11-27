@@ -27,8 +27,54 @@ The request body is a JSON representation of the message being created.
 POST https://ushv3.dev/api/v2/messages
 
 **Post Data**
+    
+    
+    {
+        "message": "Test creating outgoing",
+        "type": "sms",
+        "direction": "outgoing",
+        "contact_id": "1"
+    }
+    
 
 **Response**
+    
+    
+    {
+        "id": 9,
+        "url": "http:\/\/ushv3.dev\/api\/v2\/messages\/9",
+        "parent": null,
+        "contact": {
+            "id": "1",
+            "url": "http:\/\/ushv3.dev\/api\/v2\/contacts\/1",
+            "user": {
+                "id": "1",
+                "url": "http:\/\/ushv3.dev\/api\/v2\/users\/1"
+            },
+            "contact": "123456789",
+            "type": "phone",
+            "data_provider": "",
+            "created": "1970-01-01T00:00:00+00:00"
+        },
+        "data_feed": null,
+        "post": null,
+        "data_provider": null,
+        "data_provider_message_id": null,
+        "title": null,
+        "message": "Test creating outgoing",
+        "datetime": null,
+        "type": "sms",
+        "status": "pending",
+        "direction": "outgoing",
+        "created": "2014-01-17T03:23:43+00:00",
+        "allowed_methods": {
+            "get": true,
+            "post": true,
+            "put": true,
+            "delete": true
+        }
+    }
+    
 
 # GET messages
 
@@ -137,12 +183,267 @@ messages returned will be offset by this number of results
 GET https://ushv3.dev/api/v2/messages
 
 **Response**
+    
+    
+    {
+        "count": 5,
+        "total_count": 5,
+        "results": [{
+            "id": "1",
+            "url": "http:\/\/ushv3.dev\/api\/v2\/messages\/1",
+            "parent": null,
+            "contact": {
+                "id": "1",
+                "url": "http:\/\/ushv3.dev\/api\/v2\/contacts\/1",
+                "user": {
+                    "id": "1",
+                    "url": "http:\/\/ushv3.dev\/api\/v2\/users\/1"
+                },
+                "contact": "123456789",
+                "type": "phone",
+                "data_provider": "",
+                "created": "1970-01-01T00:00:00+00:00"
+            },
+            "data_feed": null,
+            "post": null,
+            "data_provider": null,
+            "data_provider_message_id": null,
+            "title": "abc",
+            "message": "A test message",
+            "datetime": null,
+            "type": "sms",
+            "status": "received",
+            "direction": "incoming",
+            "created": "1970-01-01T00:00:00+00:00",
+            "allowed_methods": {
+                "get": true,
+                "post": true,
+                "put": true,
+                "delete": true
+            }
+        }, {
+            "id": "2",
+            "url": "http:\/\/ushv3.dev\/api\/v2\/messages\/2",
+            "parent": null,
+            "contact": {
+                "id": "3",
+                "url": "http:\/\/ushv3.dev\/api\/v2\/contacts\/3",
+                "user": null,
+                "contact": "773456789",
+                "type": "phone",
+                "data_provider": "",
+                "created": "1970-01-01T00:00:00+00:00"
+            },
+            "data_feed": null,
+            "post": null,
+            "data_provider": null,
+            "data_provider_message_id": null,
+            "title": "",
+            "message": "Another test message",
+            "datetime": null,
+            "type": "sms",
+            "status": "received",
+            "direction": "incoming",
+            "created": "1970-01-01T00:00:00+00:00",
+            "allowed_methods": {
+                "get": true,
+                "post": true,
+                "put": true,
+                "delete": true
+            }
+        }, {
+            "id": "3",
+            "url": "http:\/\/ushv3.dev\/api\/v2\/messages\/3",
+            "parent": null,
+            "contact": {
+                "id": "2",
+                "url": "http:\/\/ushv3.dev\/api\/v2\/contacts\/2",
+                "user": null,
+                "contact": "somejunkemail@v3.ushahidi.com",
+                "type": "email",
+                "data_provider": "",
+                "created": "1970-01-01T00:00:00+00:00"
+            },
+            "data_feed": null,
+            "post": null,
+            "data_provider": null,
+            "data_provider_message_id": null,
+            "title": "Test email",
+            "message": "test email body abc",
+            "datetime": "2013-01-02T07:07:00+00:00",
+            "type": "email",
+            "status": "received",
+            "direction": "incoming",
+            "created": "1970-01-01T00:00:00+00:00",
+            "allowed_methods": {
+                "get": true,
+                "post": true,
+                "put": true,
+                "delete": true
+            }
+        }, {
+            "id": "4",
+            "url": "http:\/\/ushv3.dev\/api\/v2\/messages\/4",
+            "parent": null,
+            "contact": {
+                "id": "3",
+                "url": "http:\/\/ushv3.dev\/api\/v2\/contacts\/3",
+                "user": null,
+                "contact": "773456789",
+                "type": "phone",
+                "data_provider": "",
+                "created": "1970-01-01T00:00:00+00:00"
+            },
+            "data_feed": {
+                "id": "1",
+                "url": "http:\/\/ushv3.dev\/api\/v2\/datafeeds\/1"
+            },
+            "post": {
+                "id": "110",
+                "url": "http:\/\/ushv3.dev\/api\/v2\/posts\/110"
+            },
+            "data_provider": null,
+            "data_provider_message_id": null,
+            "title": "",
+            "message": "Another message with a post",
+            "datetime": null,
+            "type": "sms",
+            "status": "received",
+            "direction": "incoming",
+            "created": "1970-01-01T00:00:00+00:00",
+            "allowed_methods": {
+                "get": true,
+                "post": true,
+                "put": true,
+                "delete": true
+            }
+        }, {
+            "id": "5",
+            "url": "http:\/\/ushv3.dev\/api\/v2\/messages\/5",
+            "parent": null,
+            "contact": {
+                "id": "1",
+                "url": "http:\/\/ushv3.dev\/api\/v2\/contacts\/1",
+                "user": {
+                    "id": "1",
+                    "url": "http:\/\/ushv3.dev\/api\/v2\/users\/1"
+                },
+                "contact": "123456789",
+                "type": "phone",
+                "data_provider": "",
+                "created": "1970-01-01T00:00:00+00:00"
+            },
+            "data_feed": null,
+            "post": null,
+            "data_provider": "smssync",
+            "data_provider_message_id": null,
+            "title": "",
+            "message": "A test message with provider",
+            "datetime": null,
+            "type": "sms",
+            "status": "received",
+            "direction": "incoming",
+            "created": "1970-01-01T00:00:00+00:00",
+            "allowed_methods": {
+                "get": true,
+                "post": true,
+                "put": true,
+                "delete": true
+            }
+        }],
+        "limit": 50,
+        "offset": 0,
+        "order": "DESC",
+        "orderby": "created",
+        "curr": "http:\/\/ushv3.dev\/api\/v2\/messages?limit=50&offset=0",
+        "next": "http:\/\/ushv3.dev\/api\/v2\/messages?limit=50&offset=50",
+        "prev": "http:\/\/ushv3.dev\/api\/v2\/messages?limit=50&offset=0"
+    }
+    
 
 ## Search Example
 
 GET  https://ushv3.dev/api/v2/messages?q=abc
 
 **Response**
+    
+    
+    {
+        "count": 2,
+        "total_count": 2,
+        "results": [{
+            "id": "1",
+            "url": "http:\/\/ushv3.dev\/api\/v2\/messages\/1",
+            "parent": null,
+            "contact": {
+                "id": "1",
+                "url": "http:\/\/ushv3.dev\/api\/v2\/contacts\/1",
+                "user": {
+                    "id": "1",
+                    "url": "http:\/\/ushv3.dev\/api\/v2\/users\/1"
+                },
+                "contact": "123456789",
+                "type": "phone",
+                "data_provider": "",
+                "created": "1970-01-01T00:00:00+00:00"
+            },
+            "data_feed": null,
+            "post": null,
+            "data_provider": null,
+            "data_provider_message_id": null,
+            "title": "abc",
+            "message": "A test message",
+            "datetime": null,
+            "type": "sms",
+            "status": "received",
+            "direction": "incoming",
+            "created": "1970-01-01T00:00:00+00:00",
+            "allowed_methods": {
+                "get": true,
+                "post": true,
+                "put": true,
+                "delete": true
+            }
+        }, {
+            "id": "3",
+            "url": "http:\/\/ushv3.dev\/api\/v2\/messages\/3",
+            "parent": null,
+            "contact": {
+                "id": "2",
+                "url": "http:\/\/ushv3.dev\/api\/v2\/contacts\/2",
+                "user": null,
+                "contact": "somejunkemail@v3.ushahidi.com",
+                "type": "email",
+                "data_provider": "",
+                "created": "1970-01-01T00:00:00+00:00"
+            },
+            "data_feed": null,
+            "post": null,
+            "data_provider": null,
+            "data_provider_message_id": null,
+            "title": "Test email",
+            "message": "test email body abc",
+            "datetime": "2013-01-02T07:07:00+00:00",
+            "type": "email",
+            "status": "received",
+            "direction": "incoming",
+            "created": "1970-01-01T00:00:00+00:00",
+            "allowed_methods": {
+                "get": true,
+                "post": true,
+                "put": true,
+                "delete": true
+            }
+        }],
+        "limit": 50,
+        "offset": 0,
+        "order": "DESC",
+        "orderby": "created",
+        "curr": "http:\/\/ushv3.dev\/api\/v2\/messages?q=abc&limit=50&offset=0",
+        "next": "http:\/\/ushv3.dev\/api\/v2\/messages?q=abc&limit=50&offset=50",
+        "prev": "http:\/\/ushv3.dev\/api\/v2\/messages?q=abc&limit=50&offset=0"
+    }
+    
 
 # GET messages/:id
 
@@ -181,6 +482,43 @@ The numerical id of the message being updated.
 GET http://ushv3.dev/api/v2/messages/1
 
 **Response**
+    
+    
+    {
+        "id": "1",
+        "url": "http:\/\/ushv3.dev\/api\/v2\/messages\/1",
+        "parent": null,
+        "contact": {
+            "id": "1",
+            "url": "http:\/\/ushv3.dev\/api\/v2\/contacts\/1",
+            "user": {
+                "id": "1",
+                "url": "http:\/\/ushv3.dev\/api\/v2\/users\/1"
+            },
+            "contact": "123456789",
+            "type": "phone",
+            "data_provider": "",
+            "created": "1970-01-01T00:00:00+00:00"
+        },
+        "data_feed": null,
+        "post": null,
+        "data_provider": null,
+        "data_provider_message_id": null,
+        "title": "abc",
+        "message": "A test message",
+        "datetime": null,
+        "type": "sms",
+        "status": "received",
+        "direction": "incoming",
+        "created": "1970-01-01T00:00:00+00:00",
+        "allowed_methods": {
+            "get": true,
+            "post": true,
+            "put": true,
+            "delete": true
+        }
+    }
+    
 
 # PUT messages/:id
 
@@ -228,8 +566,52 @@ is status is changed but other changes are ignored.
 PUT http://ushv3.dev/api/v2/messages/1
 
 **Post Data**
+    
+    
+    {
+        "message": "Overwrite message",
+        "status": "archived"
+    }
+    
 
 **Response**
+    
+    
+    {
+        "id": "1",
+        "url": "http:\/\/ushv3.dev\/api\/v2\/messages\/1",
+        "parent": null,
+        "contact": {
+            "id": "1",
+            "url": "http:\/\/ushv3.dev\/api\/v2\/contacts\/1",
+            "user": {
+                "id": "1",
+                "url": "http:\/\/ushv3.dev\/api\/v2\/users\/1"
+            },
+            "contact": "123456789",
+            "type": "phone",
+            "data_provider": "",
+            "created": "1970-01-01T00:00:00+00:00"
+        },
+        "data_feed": null,
+        "post": null,
+        "data_provider": null,
+        "data_provider_message_id": null,
+        "title": "abc",
+        "message": "A test message",
+        "datetime": null,
+        "type": "sms",
+        "status": "archived",
+        "direction": "incoming",
+        "created": "1970-01-01T00:00:00+00:00",
+        "allowed_methods": {
+            "get": true,
+            "post": true,
+            "put": true,
+            "delete": true
+        }
+    }
+    
 
 # DELETE messages/:id
 

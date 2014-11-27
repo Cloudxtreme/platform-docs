@@ -27,8 +27,30 @@ Resource](/display/WIKI/Ushahidi+3.x+API+Tags+Resource) being created.
 POST https://ushv3.dev/api/v2/tags
 
 **Post Data**
+    
+    
+    {
+        "tag":"Boxes",
+        "slug":"boxes",
+        "type":"category",
+        "priority":1
+    }
+    
 
 **Response**
+    
+    
+    {
+        "id": 7,
+        "url": "http:\/\/ushv3.dev\/api\/v2\/tags\/7",
+        "parent": null,
+        "tag": "Boxes",
+        "slug": "boxes",
+        "type": "category",
+        "priority": 1,
+        "created": "2013-05-07T22:06:14+00:00"
+    }
+    
 
 # GET tags
 
@@ -121,12 +143,127 @@ Tags returned will be offset by this number of results
 GET https://ushv3.dev/api/v2/tags
 
 **Response**
+    
+    
+    {
+        "count": 8,
+        "results": [{
+            "id": "2",
+            "url": "http:\/\/ushv3.dev\/api\/v2\/tags\/2",
+            "parent": null,
+            "tag": "Duplicate",
+            "slug": "duplicate",
+            "type": "category",
+            "priority": "0",
+            "created": "2013-05-07T22:06:14+00:00"
+        }, {
+            "id": "3",
+            "url": "http:\/\/ushv3.dev\/api\/v2\/tags\/3",
+            "parent": null,
+            "tag": "Disaster",
+            "slug": "disaster",
+            "type": "category",
+            "priority": "0",
+            "created": "2013-05-07T22:06:14+00:00"
+        }, {
+            "id": "4",
+            "url": "http:\/\/ushv3.dev\/api\/v2\/tags\/4",
+            "parent": {
+                "id": "3",
+                "url": "http:\/\/ushv3.dev\/api\/v2\/tags\/3"
+            },
+            "tag": "Explosion",
+            "slug": "explosion",
+            "type": "category",
+            "priority": "0",
+            "created": "2013-05-07T22:06:14+00:00"
+        }, {
+            "id": "5",
+            "url": "http:\/\/ushv3.dev\/api\/v2\/tags\/5",
+            "parent": null,
+            "tag": "Todo",
+            "slug": "todo",
+            "type": "status",
+            "priority": "0",
+            "created": "2013-05-07T22:06:14+00:00"
+        }, {
+            "id": "6",
+            "url": "http:\/\/ushv3.dev\/api\/v2\/tags\/6",
+            "parent": null,
+            "tag": "Done",
+            "slug": "done",
+            "type": "status",
+            "priority": "0",
+            "created": "2013-05-07T22:06:14+00:00"
+        }, {
+            "id": "1",
+            "url": "http:\/\/ushv3.dev\/api\/v2\/tags\/1",
+            "parent": null,
+            "tag": "Updated",
+            "slug": "updated",
+            "type": "status",
+            "priority": "1",
+            "created": "2013-05-07T22:06:14+00:00"
+        }, {
+            "id": "7",
+            "url": "http:\/\/ushv3.dev\/api\/v2\/tags\/7",
+            "parent": null,
+            "tag": "Boxes",
+            "slug": "boxes",
+            "type": "category",
+            "priority": "1",
+            "created": "2013-05-07T22:06:14+00:00"
+        }, {
+            "id": "8",
+            "url": "http:\/\/ushv3.dev\/api\/v2\/tags\/8",
+            "parent": null,
+            "tag": "My magical tag",
+            "slug": "my-magical-tag",
+            "type": "category",
+            "priority": "1",
+            "created": "2013-05-07T22:06:14+00:00"
+        }],
+        "limit": 50,
+        "offset": 0,
+        "order": "ASC",
+        "orderby": "priority",
+        "curr": "http:\/\/ushv3.dev\/api\/v2\/tags?limit=50&offset=0",
+        "next": "http:\/\/ushv3.dev\/api\/v2\/tags?limit=50&offset=50",
+        "prev": "http:\/\/ushv3.dev\/api\/v2\/tags?limit=50&offset=0"
+    }
+    
 
 ## Search Example
 
 GET  https://ushv3.dev/api/v2/tags?q=Explo
 
 **Response**
+    
+    
+    {
+        "count": 1,
+        "results": [{
+            "id": "4",
+            "url": "http:\/\/ushv3.dev\/api\/v2\/tags\/4",
+            "parent": {
+                "id": "3",
+                "url": "http:\/\/ushv3.dev\/api\/v2\/tags\/3"
+            },
+            "tag": "Explosion",
+            "slug": "explosion",
+            "type": "category",
+            "priority": "0",
+            "created": "2013-05-07T22:06:14+00:00"
+        }],
+        "limit": 50,
+        "offset": 0,
+        "order": "ASC",
+        "orderby": "priority",
+        "curr": "http:\/\/ushv3.dev\/api\/v2\/tags?q=Explo&limit=50&offset=0",
+        "next": "http:\/\/ushv3.dev\/api\/v2\/tags?q=Explo&limit=50&offset=50",
+        "prev": "http:\/\/ushv3.dev\/api\/v2\/tags?q=Explo&limit=50&offset=0"
+    }
+    
 
 # GET tags/:id
 
@@ -165,6 +302,19 @@ The numerical id of the tag being updated.
 GET http://ushv3.dev/api/v2/tags/1
 
 **Response**
+    
+    
+    {
+        "id": "1",
+        "url": "http:\/\/ushv3.dev\/api\/v2\/tags\/1",
+        "parent": null,
+        "tag": "Updated",
+        "slug": "updated",
+        "type": "status",
+        "priority": "1",
+        "created": "2013-05-07T22:06:14+00:00"
+    }
+    
 
 # PUT tags/:id
 
@@ -203,8 +353,30 @@ The numerical id of the tag being updated.
 PUT http://ushv3.dev/api/v2/tags/1
 
 **Post Data**
+    
+    
+    {
+        "tag":"Updated",
+        "slug":"updated",
+        "type":"status",
+        "priority":1
+    }
+    
 
 **Response**
+    
+    
+    {
+        "id": "1",
+        "url": "http:\/\/ushv3.dev\/api\/v2\/tags\/1",
+        "parent": null,
+        "tag": "Updated",
+        "slug": "updated",
+        "type": "status",
+        "priority": 1,
+        "created": "2013-05-07T22:06:14+00:00"
+    }
+    
 
 # DELETE tags/:id
 
@@ -243,4 +415,17 @@ The numerical id of the tag being deleted.
 DELETE /api/v2/tags/2
 
 **Response**
+    
+    
+    {
+        "id": "1",
+        "url": "http:\/\/ushv3.dev\/api\/v2\/tags\/1",
+        "parent": null,
+        "tag": "Updated",
+        "slug": "updated",
+        "type": "status",
+        "priority": "1",
+        "created": "2013-05-07T22:06:14+00:00"
+    }
+    
 

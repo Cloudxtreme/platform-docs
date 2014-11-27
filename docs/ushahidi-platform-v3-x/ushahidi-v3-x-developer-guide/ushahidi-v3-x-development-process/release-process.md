@@ -342,6 +342,44 @@ this process will be documented here.
 
 # Release Checklist
 
+    
+    
+    * Prepare
+      * [ ] Set a release date
+      * [ ] Assign a release manager
+      * [ ] Clone checklist
+      * Notify Relevant Parties 
+        * [ ] Community 
+        * [ ] Ushahidi Team
+      * [ ] Collect acknowledgements
+      * [ ] Request design assets
+      * [ ] Create release candidate builds, distribute to testers
+      * [ ] Draft release announcement
+      * [ ] Write release notes 
+      * [ ] Write change log
+      * [ ] Check licensing
+     * [ ] Choose Candidate 
+    * [ ] Test and fix process (continuous process - just confirm its happening)
+    * Release
+      * [ ] Schedule a release time
+      * [ ] Create final builds
+         * [ ] No version control (Git) files are included in release files
+         * [ ] Source is exported from a tag in the version control system (Git)
+         * [ ] Compressed .zip and .tar.gz files are created
+         * [ ] Compressed distributions unpack correctly
+         * [ ] Downloads are distributed with a gpg signature, and the signing key is in the KEYS file.
+     * [ ] Review release checklist
+      * [ ] Update testing site
+      * [ ] Publish Release Announcement 
+      * Notify relevant parties / Comms
+         * [ ] Community
+         * [ ] Ushahidi team
+         * [ ] Twitter, etc
+      * [ ] Host a google hangout
+      * [ ] Security notices
+    * [ ] Bask 
+    * [ ] Review 
+
 This document borrows heavily from:
 
 <http://oss-watch.ac.uk/resources/releasemanagementbestpractice>

@@ -30,8 +30,29 @@ The request body is a JSON representation of the group being created.
 POST https://ushv3.dev/api/v2/forms/1/groups
 
 **Post Data**
+    
+    
+    {
+        "label":"First Group",
+        "priority": 1
+    }
+    
 
 **Response**
+    
+    
+    {
+        "id": 2,
+        "url": "http:\/\/ushv3.dev\/api\/v2\/forms\/1\/groups\/2",
+        "form": {
+            "url": "http:\/\/ushv3.dev\/api\/v2\/forms\/1",
+            "id": "1"
+        },
+        "label": "First Group",
+        "priority": 1,
+        "attributes": []
+    }
+    
 
 # GETforms/:form_id/groups
 
@@ -100,6 +121,45 @@ groups returned will be offset by this number of results
 GET https://ushv3.dev/api/v2/forms/1/groups
 
 **Response**
+    
+    
+    {
+        "count": 2,
+        "results": [{
+            "id": "1",
+            "url": "http:\/\/ushv3.dev\/api\/v2\/forms\/1\/groups\/1",
+            "form": {
+                "url": "http:\/\/ushv3.dev\/api\/v2\/forms\/1",
+                "id": "1"
+            },
+            "label": "Dummy Group",
+            "priority": "1",
+            "attributes": [{
+                "id": "1",
+                "url": "http:\/\/ushv3.dev\/api\/v2\/attributes\/1",
+                "key": "dummy_varchar",
+                "label": "Dummy",
+                "input": "text",
+                "type": "varchar",
+                "required": true,
+                "default": null,
+                "unique": false,
+                "priority": "1",
+                "options": null
+            }]
+        }, {
+            "id": "2",
+            "url": "http:\/\/ushv3.dev\/api\/v2\/forms\/1\/groups\/2",
+            "form": {
+                "url": "http:\/\/ushv3.dev\/api\/v2\/forms\/1",
+                "id": "1"
+            },
+            "label": "First Group",
+            "priority": "1",
+            "attributes": []
+        }]
+    }
+    
 
   
 
@@ -140,6 +200,32 @@ The numerical id of the group being updated.
 GET http://ushv3.dev/api/v2/forms/1/groups/1
 
 **Response**
+    
+    
+    {
+        "id": "1",
+        "url": "http:\/\/ushv3.dev\/api\/v2\/forms\/1\/groups\/1",
+        "form": {
+            "url": "http:\/\/ushv3.dev\/api\/v2\/forms\/1",
+            "id": "1"
+        },
+        "label": "Dummy Group",
+        "priority": 1,
+        "attributes": [{
+            "id": "1",
+            "url": "http:\/\/ushv3.dev\/api\/v2\/attributes\/1",
+            "key": "dummy_varchar",
+            "label": "Dummy",
+            "input": "text",
+            "type": "varchar",
+            "required": true,
+            "default": null,
+            "unique": false,
+            "priority": "1",
+            "options": null
+        }]
+    }
+    
 
 # PUTforms/:form_id/groups/:id
 
@@ -178,8 +264,41 @@ The numerical id of the group being updated.
 PUT http://ushv3.dev/api/v2/forms/1/groups/1
 
 **Post Data**
+    
+    
+    {
+        "label":"Dummy Group Updated",
+        "priority": 1
+    }
+    
 
 **Response**
+    
+    
+    {
+        "id": "1",
+        "url": "http:\/\/ushv3.dev\/api\/v2\/forms\/1\/groups\/1",
+        "form": {
+            "url": "http:\/\/ushv3.dev\/api\/v2\/forms\/1",
+            "id": "1"
+        },
+        "label": "Dummy Group Updated",
+        "priority": 1,
+        "attributes": [{
+            "id": "1",
+            "url": "http:\/\/ushv3.dev\/api\/v2\/attributes\/1",
+            "key": "dummy_varchar",
+            "label": "Dummy",
+            "input": "text",
+            "type": "varchar",
+            "required": true,
+            "default": null,
+            "unique": false,
+            "priority": "1",
+            "options": null
+        }]
+    }
+    
 
 # DELETEforms/:form_id/ groups/:id
 
@@ -218,6 +337,32 @@ The numerical id of the group being deleted.
 DELETE /api/v2/forms/1/groups/2
 
 **Response**
+    
+    
+    {
+        "id": "1",
+        "url": "http:\/\/ushv3.dev\/api\/v2\/forms\/1\/groups\/1",
+        "form": {
+            "url": "http:\/\/ushv3.dev\/api\/v2\/forms\/1",
+            "id": "1"
+        },
+        "label": "Dummy Group Updated",
+        "priority": "1",
+        "attributes": [{
+            "id": "1",
+            "url": "http:\/\/ushv3.dev\/api\/v2\/attributes\/1",
+            "key": "dummy_varchar",
+            "label": "Dummy",
+            "input": "text",
+            "type": "varchar",
+            "required": true,
+            "default": null,
+            "unique": false,
+            "priority": "1",
+            "options": null
+        }]
+    }
+    
 
 # POST forms/:form_id/groups/:group_id/attributes
 
@@ -237,8 +382,35 @@ representation of a new attribute, or the id of an existing attribute.
 POST http://ushv3.dev/api/v2/forms/1/groups/1/attributes
 
 **Post Data**
+    
+    
+    {
+        "key":"new_group_attr",
+        "label":"Full Name",
+        "type":"varchar",
+        "input":"text",
+        "required":true,
+        "priority":1
+    }
+    
 
 **Response**
+    
+    
+    {
+        "id": 2,
+        "url": "http:\/\/ushv3.dev\/api\/v2\/attributes\/2",
+        "key": "new_group_attr",
+        "label": "Full Name",
+        "input": "text",
+        "type": "varchar",
+        "required": false,
+        "default": null,
+        "unique": false,
+        "priority": null,
+        "options": null
+    }
+    
 
 ## Add an existing attribute to the group
 
@@ -247,8 +419,30 @@ POST http://ushv3.dev/api/v2/forms/1/groups/1/attributes
 POST  http://ushv3.dev/api/v2/forms/1/groups/1/attributes
 
 **Post Data**
+    
+    
+    {
+        "id":1
+    }
+    
 
 **Response**
+    
+    
+    {
+        "id": "1",
+        "url": "http:\/\/ushv3.dev\/api\/v2\/attributes\/1",
+        "key": "dummy_varchar",
+        "label": "Dummy",
+        "input": "text",
+        "type": "varchar",
+        "required": true,
+        "default": null,
+        "unique": false,
+        "priority": "1",
+        "options": null
+    }
+    
 
 # GET forms/:form_id/groups/:group_id/attributes
 
@@ -317,6 +511,37 @@ groups returned will be offset by this number of results
 GET http://ushv3.dev/api/v2/forms/1/groups/1/attributes
 
 **Response**
+    
+    
+    {
+        "count": 2,
+        "results": [{
+            "id": "1",
+            "url": "http:\/\/ushv3.dev\/api\/v2\/attributes\/1",
+            "key": "dummy_varchar",
+            "label": "Dummy",
+            "input": "text",
+            "type": "varchar",
+            "required": true,
+            "default": null,
+            "unique": false,
+            "priority": "1",
+            "options": null
+        }, {
+            "id": "2",
+            "url": "http:\/\/ushv3.dev\/api\/v2\/attributes\/2",
+            "key": "new_group_attr",
+            "label": "Full Name",
+            "input": "text",
+            "type": "varchar",
+            "required": false,
+            "default": null,
+            "unique": false,
+            "priority": "99",
+            "options": null
+        }]
+    }
+    
 
 # GET forms/:form_id/groups/:group_id/attributes
 
@@ -355,6 +580,22 @@ The numerical id of the group being updated.
 GET http://ushv3.dev/api/v2/forms/1/groups/1/attributes/1
 
 **Response**
+    
+    
+    {
+        "id": "1",
+        "url": "http:\/\/ushv3.dev\/api\/v2\/attributes\/1",
+        "key": "dummy_varchar",
+        "label": "Dummy",
+        "input": "text",
+        "type": "varchar",
+        "required": true,
+        "default": null,
+        "unique": false,
+        "priority": "1",
+        "options": null
+    }
+    
 
 # DELETE forms/:form_id/groups/:group_id/attributes/:id
 
@@ -396,4 +637,20 @@ The numerical id of the group being updated.
 DELETE http://ushv3.dev/api/v2/forms/1/groups/1/attributes/1
 
 **Response**
+    
+    
+    {
+        "id": "1",
+        "url": "http:\/\/ushv3.dev\/api\/v2\/attributes\/1",
+        "key": "dummy_varchar",
+        "label": "Dummy",
+        "input": "text",
+        "type": "varchar",
+        "required": true,
+        "default": null,
+        "unique": false,
+        "priority": "1",
+        "options": null
+    }
+    
 

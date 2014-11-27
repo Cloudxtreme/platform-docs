@@ -25,8 +25,53 @@ Resource](/display/WIKI/Ushahidi+3.x+API+Posts+Resource) being created.
 POST https://ushv3.dev/api/v2/posts
 
 **Post Data**
+    
+    
+    {
+    	"form":1,
+    	"locale":"en_US",
+    	"type":"report",
+    	"title":"David is Missing",
+    	"status":"published",
+    	"content":"Disheveled, skinny, homeless Kenyan last seen in the vicinity of the greyhound station",
+    	"values":{
+    		"full_name":"David Kobia",
+    		"description":"Skinny, homeless Kenyan last seen in the vicinity of the greyhound station",
+    		"dob":"272332800",
+    		"missing_date":"1365543083",
+    		"last_location":"atlanta",
+    		"status":"missing"
+    	},
+    	"tags":["missing"]
+    }
+    
 
 **Response**
+    
+    
+    {
+    	"id":1,
+    	"url":"http://ushv3.dev/api/v2/posts/1",
+    	"form":{
+    		"id":1,
+    		"url":"http://ushv3.dev/api/v2/forms/1",
+    	},
+    	"locale":"en_US",
+    	"type":"report",
+    	"title":"David is Missing",
+    	"status":"publish",
+    	"content":"Disheveled, skinny, homeless Kenyan last seen in the vicinity of the greyhound station",
+    	"values":{
+    		"full_name":"David Kobia",
+    		"description":"Skinny, homeless Kenyan last seen in the vicinity of the greyhound station",
+    		"dob":"unknown",
+    		"missing_date":"2012/09/25",
+    		"last_location":"atlanta",
+    		"status":"missing"
+    	},
+    	"tags":["missing"]
+    }
+    
 
 # GET posts
 
@@ -194,11 +239,74 @@ Posts returned will be offset by this number of results
 Posts can also be filtered by form attributes by using the attribute as a
 parameter. ie
 
+    
+    
+    GET /api/v2/posts?full_name=David
+
 ##### Example Request
 
 GET https://ushv3.dev/api/v2/posts
 
 **Response**
+    
+    
+    {
+        "count": 2,
+        "results": [
+            {
+              "id":1,
+              "url":"http://ushv3.dev/api/v2/posts/1",
+              "form":{
+                "id":1,
+                "url":"http://ushv3.dev/api/v2/forms/1",
+              },
+              "locale":"en_US",
+              "type":"report"
+              "title":"David is Missing",
+              "status":"publish",
+              "content":"Disheveled, skinny, homeless Kenyan last seen in the vicinity of the greyhound station",
+              "values":{
+                "full_name":"David Kobia",
+                "description":"Skinny, homeless Kenyan last seen in the vicinity of the greyhound station",
+                "dob":"unknown",
+                "missing_date":"2012/09/25",
+                "last_location":"atlanta",
+                "status":"missing"
+              },
+              "tags":["missing"]
+            },
+            {
+              "id":
+              "form":{
+                "id":1,
+                "url":"http://ushv3.dev/api/v2/forms/1",
+              },
+              "url":"http://ushv3.dev/api/v2/posts/2",
+              "locale":"en_US",
+              "type":"report",
+              "title":"Robbie lost in Nairobi",
+              "status":"publish",
+              "content":"Confused jetlagged New Zealander, last seen new the iHub",
+              "values":{
+                "full_name":"Robbie Mackay",
+                "description":"Confused jetlagged New Zealander, last seen new the iHub",
+                "dob":"01/01/1985",
+                "missing_date":"2013/01/30",
+                "last_location":"Nairobi",
+                "status":"missing"
+              },
+              "tags":["missing","nairobi"]
+            }
+        ],
+        "limit": 50,
+        "offset": 0,
+        "order": "ASC",
+        "orderby": "created",
+        "curr": "https://ushv3.dev/api/v2/posts/?limit=50&offset=0",
+        "next": "https://ushv3.dev/api/v2/posts/?limit=50&offset=50",
+        "prev": "https://ushv3.dev/api/v2/posts/?limit=50&offset=0"
+    }
+    
 
 ## Search Example
 
@@ -207,6 +315,43 @@ GET  https://ushv3.dev/api/v2/posts?q=David
   
 
 **Response**
+    
+    
+    {
+        "count": 1,
+        "results": [
+            {
+              "id":1,
+              "url":"http://ushv3.dev/api/v2/posts/1",
+              "form":{
+                "id":1,
+                "url":"http://ushv3.dev/api/v2/forms/1",
+              },
+              "locale":"en_US",
+              "type":"report",
+              "title":"David is Missing",
+              "status":"publish",
+              "content":"Disheveled, skinny, homeless Kenyan last seen in the vicinity of the greyhound station",
+              "values":{
+                "full_name":"David Kobia",
+                "description":"Skinny, homeless Kenyan last seen in the vicinity of the greyhound station",
+                "dob":"unknown",
+                "missing_date":"2012/09/25",
+                "last_location":"atlanta",
+                "status":"missing"
+              },
+              "tags":["missing"]
+            }
+        ],
+        "limit": 50,
+        "offset": 0,
+        "order": "ASC",
+        "orderby": "created",
+        "curr": "https://ushv3.dev/api/v2/posts/?q=David&limit=50&offset=0",
+        "next": "https://ushv3.dev/api/v2/posts/?q=David&limit=50&offset=50",
+        "prev": "https://ushv3.dev/api/v2/posts/?q=David&limit=50&offset=0"
+    }
+    
 
 # GET posts/:id
 
@@ -245,6 +390,31 @@ The numerical id of the post being updated.
 GET http://ushv3.dev/api/v2/posts/1
 
 **Response**
+    
+    
+    {
+    	"id":1,
+    	"url":"http://ushv3.dev/api/v2/posts/1",
+    	"form":{
+    		"id":1,
+    		"url":"http://ushv3.dev/api/v2/forms/1",
+    	},
+    	"locale":"en_US",
+    	"type":"report",
+    	"title":"David is Missing [RESOLVED: NOW FOUND]",
+    	"status":"publish",
+    	"content":"Disheveled, skinny, homeless Kenyan last seen in the vicinity of the greyhound station. Found in Nairobi",
+    	"values":{
+    		"full_name":"David Kobia",
+    		"description":"Skinny, homeless Kenyan last seen in the vicinity of the greyhound station",
+    		"dob":"unknown",
+    		"missing_date":"2012/09/25",
+    		"last_location":"Nairobi",
+    		"status":"found"
+    	},
+    	"tags":["found"]
+    }
+    
 
 # PUT posts/:id
 
@@ -283,8 +453,53 @@ The numerical id of the post being updated.
 PUT http://ushv3.dev/api/v2/posts/1
 
 **Post Data**
+    
+    
+    {
+    	"form":1,
+    	"locale":"en_US",
+    	"type":"report",
+    	"title":"David is Missing [RESOLVED: NOW FOUND]",
+    	"status":"publish",
+    	"content":"Disheveled, skinny, homeless Kenyan last seen in the vicinity of the greyhound station. Found in Nairobi",
+    	"values":{
+    		"full_name":"David Kobia",
+    		"description":"Skinny, homeless Kenyan last seen in the vicinity of the greyhound station",
+    		"dob":"unknown",
+    		"missing_date":"2012/09/25",
+    		"last_location":"Nairobi",
+    		"status":"found"
+    	},
+    	"tags":["found"]
+    }
+    
 
 **Response**
+    
+    
+    {
+    	"id":1,
+    	"url":"http://ushv3.dev/api/v2/posts/1",
+    	"form":{
+    		"id":1,
+    		"url":"http://ushv3.dev/api/v2/forms/1",
+    	},
+    	"locale":"en_US",
+    	"type":"report",
+    	"title":"David is Missing [RESOLVED: NOW FOUND]",
+    	"status":"publish",
+    	"content":"Disheveled, skinny, homeless Kenyan last seen in the vicinity of the greyhound station. Found in Nairobi",
+    	"values":{
+    		"full_name":"David Kobia",
+    		"description":"Skinny, homeless Kenyan last seen in the vicinity of the greyhound station",
+    		"dob":"unknown",
+    		"missing_date":"2012/09/25",
+    		"last_location":"Nairobi",
+    		"status":"found"
+    	},
+    	"tags":["found"]
+    }
+    
 
 ### TODO
 
@@ -327,4 +542,29 @@ The numerical id of the post being deleted.
 DELETE /api/v2/posts/2
 
 **Response**
+    
+    
+    {
+    	"id":2,
+    	"url":"http://ushv3.dev/api/v2/posts/2",
+    	"form":{
+    		"id":1,
+    		"url":"http://ushv3.dev/api/v2/forms/1",
+    	},
+    	"locale":"en_US",
+    	"type":"report",
+    	"title":"David is Missing",
+    	"status":"publish",
+    	"content":"Disheveled, skinny, homeless Kenyan last seen in the vicinity of the greyhound station",
+    	"values":{
+    		"full_name":"David Kobia",
+    		"description":"Skinny, homeless Kenyan last seen in the vicinity of the greyhound station",
+    		"dob":"unknown",
+    		"missing_date":"2012/09/25",
+    		"last_location":"atlanta",
+    		"status":"missing"
+    	},
+    	"tags":["missing"]
+    }
+    
 

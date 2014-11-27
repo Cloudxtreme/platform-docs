@@ -29,8 +29,39 @@ multiple forms/groups, and can be orphaned later when a group is removed.
 POST https://ushv3.dev/api/v2/attributes
 
 **Post Data**
+    
+    
+    {
+        "form_group":1,
+        "key":"full_name",
+        "label":"Full Name",
+        "type":"varchar",
+        "input":"text",
+        "required":true,
+        "default":"",
+        "unique":false,
+        "priority":1
+        "options":{}
+    }
+    
 
 **Response**
+    
+    
+    {
+        "id":2,
+        "url":"https://ushv3.dev/api/v2/attributes/2",
+        "key":"full_name",
+        "label":"Full Name",
+        "input":"text",
+        "type":"varchar",
+        "required":true,
+        "default":null,
+        "unique":false,
+        "priority":1
+        "options":{}
+    }
+    
 
 # GET attributes
 
@@ -121,6 +152,66 @@ attributes returned will be offset by this number of results
 GET https://ushv3.dev/api/v2/attributes
 
 **Response**
+    
+    
+    {
+        "count": 4,
+        "results":[
+            {
+                "url":"https://ushv3.dev/api/v2/forms/1/attributes/1",
+                "id":"1",
+                "key":"full_name",
+                "label":"Full Name",
+                "type":"varchar",
+                "input":"text",
+                "required":true,
+                "default":null,
+                "unique":false,
+                "priority":1
+                "options":{}
+            },
+            {
+                "url":"https://ushv3.dev/api/v2/forms/1/attributes/2",
+                "id":"2",
+                "key":"last_name",
+                "label":"Last Name",
+                "type":"varchar",
+                "input":"text",
+                "required":false,
+                "default":null,
+                "unique":false,
+                "priority":2
+                "options":{}
+            },
+            {
+                "url":"https://ushv3.dev/api/v2/attributes/3",
+                "id":"3",
+                "key":"address",
+                "label":"Address",
+                "type":"varchar",
+                "input":"text",
+                "required":false,
+                "default":"",
+                "unique":false,
+                "priority":3
+                "options":{}
+            },
+            {
+                "url":"https://ushv3.dev/api/v2/attributes/4",
+                "id":"4",
+                "key":"phone",
+                "label":"Phone",
+                "type":"varchar",
+                "input":"text",
+                "required":false,
+                "default":"",
+                "unique":false,
+                "priority":4
+                "options":{}
+            }
+        ]
+    }
+    
 
   
 
@@ -161,6 +252,22 @@ The numerical id of the attribute being updated.
 GET http://ushv3.dev/api/v2/attributes/1
 
 **Response**
+    
+    
+    {
+        "url":"https://ushv3.dev/api/v2/attributes/2",
+        "id":2,
+        "key":"full_name",
+        "label":"Full Name",
+        "type":"varchar",
+        "input":"text",
+        "required":true,
+        "default":null,
+        "unique":false,
+        "priority":1
+        "options":{}
+    }
+    
 
 # PUT attributes/:id
 
@@ -202,8 +309,38 @@ The numerical id of the attribute being updated.
 PUT http://ushv3.dev/api/v2/attributes/1
 
 **Post Data**
+    
+    
+    {
+        "key":"full_name",
+        "label":"Full Name",
+        "type":"varchar",
+        "input":"text",
+        "required":true,
+        "default":"",
+        "unique":false,
+        "priority":1
+        "options":{}
+    }
+    
 
 **Response**
+    
+    
+    {
+        "url":"https://ushv3.dev/api/v2/attributes/2",
+        "id":2,
+        "key":"full_name",
+        "label":"Full Name",
+        "type":"varchar",
+        "input":"text",
+        "required":true,
+        "default":null,
+        "unique":false,
+        "priority":1
+        "options":{}
+    }
+    
 
 # DELETE attributes/:id
 
@@ -242,4 +379,20 @@ The numerical id of the attribute being deleted.
 DELETE api/v2/attributes/2
 
 **Response**
+    
+    
+    {
+        "url":"https://ushv3.dev/api/v2/attributes/2",
+        "id":2,
+        "key":"full_name",
+        "label":"Full Name",
+        "type":"varchar",
+        "input":"text",
+        "required":true,
+        "default":null,
+        "unique":false,
+        "priority":1
+        "options":{}
+    }
+    
 

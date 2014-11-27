@@ -172,6 +172,33 @@ Init.js is first file loaded by requireJS. It sets up some initial RequireJS
 config (paths, and shims for non AMD modules), requires other App files and
 starts the App. It's simple enough to include most of its code below
 
+    
+    
+    // Cut down excerpt from Init.js
+    
+    require.config(
+    {
+    	baseUrl : "./media/kohana/js/app",
+    	paths :
+    	{
+    		// Set paths to libraries
+    	},
+    	shim : 
+    	{
+    		// Shim non AMD modules
+    	}
+    }
+    
+    require(["App", "routers/AppRouter", "controllers/Controller", "jquery", "jqueryui", "backbone.validateAll"],
+    	function(App, AppRouter, Controller) {
+    		App.appRouter = new AppRouter(
+    		{
+    			controller : new Controller()
+    		});
+    		App.start();
+    		window.App = App;
+    	}); 
+
 #### App.js
 
 This is the module for the main application object.. there's not actually a
@@ -186,6 +213,26 @@ Once the App class has started, most control is handed over to the router and
 controller class. The router maps a url to a controller and action, at the
 moment these mappings are all fairly simple.
 
+    
+    
+    // AppRouter.js
+    define(['marionette', 'controllers/Controller'],
+    	function(Marionette, Controller) {
+    		return Marionette.AppRouter.extend(
+    		{
+    			appRoutes :
+    			{
+    				"" : "index",
+    				"views/list" : "viewsList",
+    				"views/map" : "viewsMap",
+    				"posts/:id" : "postDetail",
+    				"*path" : "index"
+    			}
+    		});
+    	}); 
+    
+    
+
 Each route maps directly to a function in the controller. The controller
 handles switching layouts and regions, creating views and binding models or
 collections to these.
@@ -193,6 +240,50 @@ collections to these.
 I've shown part of the Controller.js file below. The 'initialize' function is
 run when the App first starts. It creates an 'AppLayout' - this is kind of a
 special view with several regions
+
+    
+    
+    // Controller.js
+    		Backbone.Marionette.Controller.extend(
+    		{
+    			initialize : function(options) {
+    				this.layout = new AppLayout();
+    				App.body.show(this.layout);
+    				
+    				var header = new HeaderView();
+    				header.on('workspace:toggle', function () {
+    					App.body.$el.toggleClass('active-workspace')
+    				});
+    				
+    				this.layout.headerRegion.show(header);
+    				this.layout.footerRegion.show(new FooterView());
+    				this.layout.workspacePanel.show(new WorkspacePanelView());
+    				
+    				App.Collections = {};
+    				App.Collections.Posts = new PostCollection();
+    				App.Collections.Posts.fetch();
+    				App.Collections.Tags = new TagCollection();
+    				App.Collections.Tags.fetch();
+    				App.Collections.Forms = new FormCollection();
+    				App.Collections.Forms.fetch();
+    				
+    				App.homeLayout = new HomeLayout();
+    			},
+    			//gets mapped to in AppRouter's appRoutes
+    			index : function() {
+    				App.vent.trigger("page:change", "index");
+    				this.layout.mainRegion.show(App.homeLayout);
+    				
+    				App.homeLayout.contentRegion.show(new PostListView({
+    					collection: App.Collections.Posts
+    				}));
+    				App.homeLayout.mapRegion.show(new MapView());
+    				App.homeLayout.searchRegion.show(new SearchBarView());
+    			},
+    			// etc
+    		});
+    
+    
 
 #### Layouts and Regions
 
@@ -232,6 +323,25 @@ Kohana module: UshahidiUI. This handles a couple of things:
 This controller handles requests for '/' - the main page of a deployment. This
 controller does very little real work: its builds an array of config data, and
 renders a single view - 'modules/UshahidiUI/views/index.php'.
+
+    
+    
+    abstract class Ushahidi_Controller_Main extends Controller_Template {
+        
+        public $template = 'index';
+        
+        public function action_index()
+        {
+            $this->template->site = array();
+            $this->template->site['baseurl'] = Kohana::$base_url;
+            $this->template->site['imagedir'] = Media::uri('/images/');
+            $this->template->site['cssdir'] = Media::uri('/css/');
+            $this->template->site['jsdir'] = Media::uri('/js/');
+            $this->template->site['oauth'] = Kohana::$config->load('ushahidiui.oauth');
+            
+        }
+        
+    }
 
 This view generates the starting HTML for our application, including tags to
 load JS/CSS files and turning that configuration array in a json object.

@@ -41,12 +41,48 @@ ion=1&modificationDate=1397682725000&api=v2)
 
   * Open the 'Terminal' app by going to **Applications > Utilities > _Terminal_**
   * Change to our document root folder
+    
+        cd /Applications/MAMP/ushahidi
 
   * Remove the default MAMP Pro files from this directory
+    
+        rm MAMP-PRO-Logo.png
+    rm index.php
 
   * Clone the Ushahidi Platform repository from Github
+    
+        git clone --recursive https://github.com/ushahidi/platform ./
 
   * Follow the rest of the instructions listed here with the exception of using the database.php file listed below:
+    
+        <?php defined('SYSPATH') or die('No direct access allowed.');
+    /**
+     * Database Config
+     * 
+     * @author     Ushahidi Team <team@ushahidi.com>
+     * @package    Ushahidi\Application\Config
+     * @copyright  2013 Ushahidi
+     * @license    https://www.gnu.org/licenses/agpl-3.0.html GNU Affero General Public License Version 3 (AGPL3)
+     */
+    return array
+    (
+    	'default' => array
+    	(
+    		'type'       => 'MySQLi',
+    		'connection' => array(
+    			'hostname'   => 'localhost',
+    			'database'   => 'ushahidi',
+    			'username'   => 'root',
+    			'password'   => 'root',
+    			'socket'     => '/Applications/MAMP/tmp/mysql/mysql.sock',
+    			'persistent' => FALSE,
+    		),
+    		'table_prefix' => '',
+    		'charset'      => 'utf8',
+    		'caching'      => TRUE,
+    		'profiling'    => TRUE,
+    	)
+    );
 
   * Your new site will be accessible at**<http://ushahidi.dev:8888/>**
 

@@ -44,3 +44,22 @@ The value
   
 ## Syntax
 
+    
+    
+    CREATE  TABLE IF NOT EXISTS `post_decimal` (
+      `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT ,
+      `post_id` INT(11) UNSIGNED NOT NULL DEFAULT '0' ,
+      `form_attribute_id` INT(11) UNSIGNED NOT NULL DEFAULT '0' ,
+      `value` DECIMAL(12,4) NULL DEFAULT '0.0000' ,
+      `created` INT(10) UNSIGNED NOT NULL DEFAULT '0' ,
+      PRIMARY KEY (`id`) ,
+      INDEX `fk_post_decimal_post_id` (`post_id` ASC) ,
+      INDEX `idx_form_attribute_id` (`form_attribute_id` ASC) ,
+      CONSTRAINT `fk_post_decimal_post_id`
+        FOREIGN KEY (`post_id` )
+        REFERENCES `posts` (`id` )
+        ON DELETE CASCADE)
+    ENGINE = InnoDB
+    DEFAULT CHARACTER SET = utf8;
+    
+

@@ -18,6 +18,18 @@ HTML that goes into the main region, that is the contents of div#main-region
 shown below.
 
 **Base app view html (AppLayout.html)**
+    
+    
+    <div class="content-wrapper  js-content-wrapper">
+        <h1 class="visually-hidden">Main Section</h1>
+        <section id="main" role="main">
+            <div id="header-region"></div>
+            <div id="main-region"></div>
+        </section>
+        <aside id="workspace-panel" class="workspace-panel" role="complementary">
+        </aside>
+    </div>
+    <div id="footer-region"></div>
 
 ### Creating a new view
 
@@ -29,10 +41,30 @@ The example code below creates a super simple view, that just loads
 templates/Example.html and compiles it with Handlebars.
 
 **modules/Ushahidi/media/js/app/views/ExampleView.js**
+    
+    
+    // Define required modules: Marionette, handlebars, and our template Example.html
+    // Add text! before the requirement loads the file as text, rather than evaluating it as JS.
+    define([ 'marionette', 'handlebars', 'text!templates/Example.html'],
+        function( Marionette, Handlebars, exampleTemplate)
+        {
+    		// Create an Item view
+            return Marionette.ItemView.extend( {
+    			// Override template to use our template (loaded above)
+                template: Handlebars.compile(exampleTemplate)
+            });
+        });
 
 The HTML for this can be anything we need really.. here's a quick example
 
 **modules/UshahidiUI/media/js/app/templates/Example.html**
+    
+    
+    <div class="body-wrapper">
+        <div class="row">
+            <p>My Awesome Example Page!</p>
+        </div> <!-- end .row -->
+    </div> <!-- end .body-wrapper -->
 
 ### Displaying the view
 
@@ -43,10 +75,40 @@ multiple views.. but we just want to get something on the screen.
 Add this to controllers/Controller.js
 
 **modules/UshahidiUI/media/js/app/controllers/Controller.js**
+    
+    
+    //At the top of Controller.js define the file path and add the class name to the function
+    define([..., 'views/ExampleView'],
+    	function(..., ExampleView)
+    
+    Backbone.Marionette.Controller.extend(
+    {
+    	...
+    	example : function()
+    	{
+        	this.layout.mainRegion.show(new ExampleView());
+    	}
+    	...
+    }
 
 Then add the following to routes/AppRouter.js
 
 **modules/UshahidiUI/media/js/app/routers/AppRouter.js**
+    
+    
+    Marionette.AppRouter.extend(
+    {
+        appRoutes :
+        {
+            '' : 'index',
+            'views/list' : 'viewsList',
+            'views/map' : 'viewsMap',
+            'posts/:id' : 'postDetail',
+    		// Add your new view before the *path rule
+    		'example' : 'example',
+    		'*path' : 'index'
+    }
+    });
 
 Now if you load your V3 site, and got to #example you should see your new
 view! \o/
@@ -58,8 +120,34 @@ this case 'posts/:id'. The router directs that request to a matching function
 on the Controller class.
 
 **routers/AppRouter.js**
+    
+    
+    Marionette.AppRouter.extend(
+    {
+        appRoutes :
+        {
+            '' : 'index',
+            'views/list' : 'viewsList',
+            'views/map' : 'viewsMap',
+            'posts/:id' : 'postDetail',
+            '*path' : 'index'
+        }
+    });
 
 **Extract of controllers/Controller.js**
+    
+    
+    Backbone.Marionette.Controller.extend(
+    {
+        initialize : function()
+        {
+        ...
+        },
+        postDetail : function(id)
+        {
+        ...
+        }
+    });
 
 In our example: the URL '/posts/1' is matched to the 'posts/:id' route. This
 triggers a call to Controller.postDetail(1)

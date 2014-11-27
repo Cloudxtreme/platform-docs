@@ -48,6 +48,17 @@
     * Related records can be submitted with just the ID or ID within the object.
 
 **Response Example**
+    
+    
+    {
+      "id":1,
+      "url":"http://ushv3.dev/api/v2/posts/1",
+      "form":{
+        "id":1,
+        "url":"http://ushv3.dev/api/v2/forms/1",
+      }
+    }
+    
 
 ### Response Codes
 

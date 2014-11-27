@@ -179,18 +179,181 @@ Posts returned will be offset by this number of results
 GET https://ushv3.dev/api/v2/posts/geojson
 
 **Response**
+    
+    
+    {
+        "type": "FeatureCollection",
+        "features": [{
+            "type": "Feature",
+            "geometry": {
+                "type": "GeometryCollection",
+                "geometries": [{
+                    "type": "Point",
+                    "coordinates": [12.123, 21.213]
+                }, {
+                    "type": "MultiPolygon",
+                    "coordinates": [
+                        [
+                            [
+                                [40, 40],
+                                [20, 45],
+                                [45, 30],
+                                [40, 40]
+                            ]
+                        ],
+                        [
+                            [
+                                [20, 35],
+                                [45, 20],
+                                [30, 5],
+                                [10, 10],
+                                [10, 30],
+                                [20, 35]
+                            ]
+                        ],
+                        [
+                            [
+                                [30, 20],
+                                [20, 25],
+                                [20, 15],
+                                [30, 20]
+                            ]
+                        ]
+                    ]
+                }]
+            },
+            "properties": {
+                "title": "Test post",
+                "description": "Testing post",
+                "id": "1",
+                "url": "http:\/\/ushv3.dev\/api\/v2\/posts\/1"
+            }
+        }, {
+            "type": "Feature",
+            "geometry": {
+                "type": "GeometryCollection",
+                "geometries": [{
+                    "type": "Point",
+                    "coordinates": [1, 1]
+                }, {
+                    "type": "Point",
+                    "coordinates": [1.2, 0.5]
+                }]
+            },
+            "properties": {
+                "title": "OAuth test post",
+                "description": "Testing oauth posts api access",
+                "id": "95",
+                "url": "http:\/\/ushv3.dev\/api\/v2\/posts\/95"
+            }
+        }, {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [1, 1]
+            },
+            "properties": {
+                "title": "search by attribute",
+                "description": "Some description",
+                "id": "97",
+                "url": "http:\/\/ushv3.dev\/api\/v2\/posts\/97"
+            }
+        }, {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [10.123, 26.213]
+            },
+            "properties": {
+                "title": "another report",
+                "description": "Some description",
+                "id": "98",
+                "url": "http:\/\/ushv3.dev\/api\/v2\/posts\/98"
+            }
+        }, {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [11.123, 24.213]
+            },
+            "properties": {
+                "title": "Should be returned when Searching",
+                "description": "Some description",
+                "id": "99",
+                "url": "http:\/\/ushv3.dev\/api\/v2\/posts\/99"
+            }
+        }]
+    }
+    
 
 ## Bounding Box Search Example
 
 GET  https://ushv3.dev/api/v2/posts/geojson?bbox=-2,-2,2,2
 
 **Response**
+    
+    
+    {
+        "type": "FeatureCollection",
+        "bbox": [-2, -2, 2, 2],
+        "features": [{
+            "type": "Feature",
+            "geometry": {
+                "type": "GeometryCollection",
+                "geometries": [{
+                    "type": "Point",
+                    "coordinates": [1, 1]
+                }, {
+                    "type": "Point",
+                    "coordinates": [1.2, 0.5]
+                }]
+            },
+            "properties": {
+                "title": "OAuth test post",
+                "description": "Testing oauth posts api access",
+                "id": "95",
+                "url": "http:\/\/ushv3.dev\/api\/v2\/posts\/95"
+            }
+        }, {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [1, 1]
+            },
+            "properties": {
+                "title": "search by attribute",
+                "description": "Some description",
+                "id": "97",
+                "url": "http:\/\/ushv3.dev\/api\/v2\/posts\/97"
+            }
+        }]
+    }
+    
 
 ## Specific 'geometry_attribute' Example
 
 GET  https://ushv3.dev/api/v2/posts/geojson?geometry_attribute=second_point
 
 **Response**
+    
+    
+    {
+        "type": "FeatureCollection",
+        "features": [{
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [1.2, 0.5]
+            },
+            "properties": {
+                "title": "OAuth test post",
+                "description": "Testing oauth posts api access",
+                "id": "95",
+                "url": "http:\/\/ushv3.dev\/api\/v2\/posts\/95"
+            }
+        }]
+    }
+    
 
 # GET posts/:id
 
@@ -229,6 +392,58 @@ The numerical id of the post being retrieved.
 GET http://ushv3.dev/api/v2/posts/1/geojson
 
 **Response**
+    
+    
+    {
+        "type": "FeatureCollection",
+        "features": [{
+            "type": "Feature",
+            "geometry": {
+                "type": "GeometryCollection",
+                "geometries": [{
+                    "type": "Point",
+                    "coordinates": [12.123, 21.213]
+                }, {
+                    "type": "MultiPolygon",
+                    "coordinates": [
+                        [
+                            [
+                                [40, 40],
+                                [20, 45],
+                                [45, 30],
+                                [40, 40]
+                            ]
+                        ],
+                        [
+                            [
+                                [20, 35],
+                                [45, 20],
+                                [30, 5],
+                                [10, 10],
+                                [10, 30],
+                                [20, 35]
+                            ]
+                        ],
+                        [
+                            [
+                                [30, 20],
+                                [20, 25],
+                                [20, 15],
+                                [30, 20]
+                            ]
+                        ]
+                    ]
+                }]
+            },
+            "properties": {
+                "title": "Test post",
+                "description": "Testing post",
+                "id": "1",
+                "url": "http:\/\/ushv3.dev\/api\/v2\/posts\/1"
+            }
+        }]
+    }
+    
 
 # GET posts/geojson/:z/:x/:y
 
@@ -399,4 +614,111 @@ Posts returned will be offset by this number of results
 GET  https://ushv3.dev/api/v2/posts/geojson/1/1/0
 
 **Response**
+    
+    
+    {
+        "type": "FeatureCollection",
+        "bbox": [0, 85.051128779807, 180, 0],
+        "features": [{
+            "type": "Feature",
+            "geometry": {
+                "type": "GeometryCollection",
+                "geometries": [{
+                    "type": "Point",
+                    "coordinates": [12.123, 21.213]
+                }, {
+                    "type": "MultiPolygon",
+                    "coordinates": [
+                        [
+                            [
+                                [40, 40],
+                                [20, 45],
+                                [45, 30],
+                                [40, 40]
+                            ]
+                        ],
+                        [
+                            [
+                                [20, 35],
+                                [45, 20],
+                                [30, 5],
+                                [10, 10],
+                                [10, 30],
+                                [20, 35]
+                            ]
+                        ],
+                        [
+                            [
+                                [30, 20],
+                                [20, 25],
+                                [20, 15],
+                                [30, 20]
+                            ]
+                        ]
+                    ]
+                }]
+            },
+            "properties": {
+                "title": "Test post",
+                "description": "Testing post",
+                "id": "1",
+                "url": "http:\/\/ushv3.dev\/deployment\/httpdocs\/api\/v2\/posts\/1"
+            }
+        }, {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [11.123, 24.213]
+            },
+            "properties": {
+                "title": "Should be returned when Searching",
+                "description": "Some description",
+                "id": "99",
+                "url": "http:\/\/ushv3.dev\/deployment\/httpdocs\/api\/v2\/posts\/99"
+            }
+        }, {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [10.123, 26.213]
+            },
+            "properties": {
+                "title": "another report",
+                "description": "Some description",
+                "id": "98",
+                "url": "http:\/\/ushv3.dev\/deployment\/httpdocs\/api\/v2\/posts\/98"
+            }
+        }, {
+            "type": "Feature",
+            "geometry": {
+                "type": "GeometryCollection",
+                "geometries": [{
+                    "type": "Point",
+                    "coordinates": [1, 1]
+                }, {
+                    "type": "Point",
+                    "coordinates": [1.2, 0.5]
+                }]
+            },
+            "properties": {
+                "title": "OAuth test post",
+                "description": "Testing oauth posts api access",
+                "id": "95",
+                "url": "http:\/\/ushv3.dev\/deployment\/httpdocs\/api\/v2\/posts\/95"
+            }
+        }, {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [1, 1]
+            },
+            "properties": {
+                "title": "search by attribute",
+                "description": "Some description",
+                "id": "97",
+                "url": "http:\/\/ushv3.dev\/deployment\/httpdocs\/api\/v2\/posts\/97"
+            }
+        }]
+    }
+    
 

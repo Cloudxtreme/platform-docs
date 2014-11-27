@@ -29,8 +29,54 @@ The request body is a JSON representation of the reportbeing created.
 POST https://ushv3.dev/api/v2/posts/99/updates
 
 **Post Data**
+    
+    
+    {
+        "form": 1,
+        "title": "Test update",
+        "content": "Some description",
+        "status": "published",
+        "type": "report",
+        "locale":"en_US",
+        "values": {
+            "dummy_varchar": "testing"
+        },
+        "tags": ["update-test"]
+    }
+    
 
 **Response**
+    
+    
+    {
+    
+        "id": 103,
+        "url": "http:\/\/ushv3.dev\/api\/v2\/posts\/103",
+        "parent": {
+            "id": "99",
+            "url": "http:\/\/ushv3.dev\/api\/v2\/posts\/99"
+        },
+        "user": null,
+        "form": {
+            "id": "1",
+            "url": "http:\/\/ushv3.dev\/api\/v2\/forms\/1"
+        },
+        "title": "Test update",
+        "content": "Some description",
+        "status": "published",
+        "type": "report",
+        "email": null,
+        "author": null,
+        "slug": "test-update",
+        "locale": "en_us",
+        "created": "2013-05-08T01:58:56+00:00",
+        "updated": null,
+        "values": {
+            "dummy_varchar": "testing"
+        },
+        "tags": ["update-test"]
+    }
+    
 
 # GET posts/:post_id/updates
 
@@ -190,11 +236,81 @@ Posts returned will be offset by this number of results
 Posts can also be filtered by form attributes by using the attribute as a
 parameter. ie
 
+    
+    
+    GET /api/v2/posts/1/updates?full_name=David
+
 ##### Example Request
 
 GET https://ushv3.dev/api/v2/posts/99/updates
 
 **Response**
+    
+    
+    {
+        "count": 2,
+        "results": [{
+            "id": "101",
+            "url": "http:\/\/ushv3.dev\/api\/v2\/posts\/101",
+            "parent": {
+                "id": "99",
+                "url": "http:\/\/ushv3.dev\/api\/v2\/posts\/99"
+            },
+            "user": null,
+            "form": {
+                "id": "1",
+                "url": "http:\/\/ushv3.dev\/api\/v2\/forms\/1"
+            },
+            "title": "Child dummy report",
+            "content": "Some description",
+            "status": "published",
+            "type": "report",
+            "email": null,
+            "author": null,
+            "slug": "child-dummy-report",
+            "locale": "en_us",
+            "created": "2013-05-08T01:58:56+00:00",
+            "updated": "1970-01-01T00:00:00+00:00",
+            "values": {
+                "dummy_varchar": "dummy string"
+            },
+            "tags": []
+        }, {
+            "id": "102",
+            "url": "http:\/\/ushv3.dev\/api\/v2\/posts\/102",
+            "parent": {
+                "id": "99",
+                "url": "http:\/\/ushv3.dev\/api\/v2\/posts\/99"
+            },
+            "user": null,
+            "form": {
+                "id": "2",
+                "url": "http:\/\/ushv3.dev\/api\/v2\/forms\/2"
+            },
+            "title": "Child missing person report",
+            "content": "Some description",
+            "status": "published",
+            "type": "report",
+            "email": null,
+            "author": null,
+            "slug": "child-missing-person-report",
+            "locale": "en_us",
+            "created": "2013-05-08T01:58:56+00:00",
+            "updated": "1970-01-01T00:00:00+00:00",
+            "values": {
+                "full_name": "missing"
+            },
+            "tags": []
+        }],
+        "limit": 50,
+        "offset": 0,
+        "order": "ASC",
+        "orderby": "created",
+        "curr": "http:\/\/ushv3.dev\/api\/v2\/posts\/99\/updates?limit=50&offset=0",
+        "next": "http:\/\/ushv3.dev\/api\/v2\/posts\/99\/updates?limit=50&offset=50",
+        "prev": "http:\/\/ushv3.dev\/api\/v2\/posts\/99\/updates?limit=50&offset=0"
+    }
+    
 
 # GETposts/:post_id/updates/:id
 
@@ -233,6 +349,37 @@ The numerical id of the post being updated.
 GET http://ushv3.dev/api/v2/posts/99/updates/101
 
 **Response**
+    
+    
+    {
+    
+        "id": "101",
+        "url": "http:\/\/ushv3.dev\/api\/v2\/posts\/101",
+        "parent": {
+            "id": "99",
+            "url": "http:\/\/ushv3.dev\/api\/v2\/posts\/99"
+        },
+        "user": null,
+        "form": {
+            "id": "1",
+            "url": "http:\/\/ushv3.dev\/api\/v2\/forms\/1"
+        },
+        "title": "Child dummy report",
+        "content": "Some description",
+        "status": "published",
+        "type": "report",
+        "email": null,
+        "author": null,
+        "slug": "child-dummy-report",
+        "locale": "en_us",
+        "created": "2013-05-08T01:58:56+00:00",
+        "updated": "1970-01-01T00:00:00+00:00",
+        "values": {
+            "dummy_varchar": "dummy string"
+        },
+        "tags": []
+    }
+    
 
 # PUT posts/:posts_id/updates:id
 
@@ -271,8 +418,53 @@ The numerical id of the post being updated.
 PUT http://ushv3.dev/api/v2/posts/99/updates/101
 
 **Post Data**
+    
+    
+    {
+       "form": 1,
+        "title": "Test update updated",
+        "content": "Some description",
+        "status": "published",
+        "type": "report",
+        "locale":"en_US",
+        "values": {
+            "dummy_varchar": "testing"
+        },
+        "tags": ["update-test"]
+    }
+    
 
 **Response**
+    
+    
+    {
+       "id": "101",
+        "url": "http:\/\/ushv3.dev\/api\/v2\/posts\/101",
+        "parent": {
+            "id": "99",
+            "url": "http:\/\/ushv3.dev\/api\/v2\/posts\/99"
+        },
+        "user": null,
+        "form": {
+            "id": "1",
+            "url": "http:\/\/ushv3.dev\/api\/v2\/forms\/1"
+        },
+        "title": "Test update updated",
+        "content": "Some description",
+        "status": "published",
+        "type": "report",
+        "email": null,
+        "author": null,
+        "slug": "child-dummy-report",
+        "locale": "en_us",
+        "created": "2013-05-08T01:58:56+00:00",
+        "updated": "2013-05-08T01:58:57+00:00",
+        "values": {
+            "dummy_varchar": "testing"
+        },
+        "tags": ["update-test"]
+    }
+    
 
 # DELETE posts/:posts_id/updates/:id
 
@@ -311,4 +503,34 @@ The numerical id of the post being deleted.
 DELETE /api/v2/posts/:post_id/updates/2
 
 **Response**
+    
+    
+    {
+        "id": "101",
+        "url": "http:\/\/ushv3.dev\/api\/v2\/posts\/101",
+        "parent": {
+            "id": "99",
+            "url": "http:\/\/ushv3.dev\/api\/v2\/posts\/99"
+        },
+        "user": null,
+        "form": {
+            "id": "1",
+            "url": "http:\/\/ushv3.dev\/api\/v2\/forms\/1"
+        },
+        "title": "Test update updated",
+        "content": "Some description",
+        "status": "published",
+        "type": "report",
+        "email": null,
+        "author": null,
+        "slug": "child-dummy-report",
+        "locale": "en_us",
+        "created": "2013-05-08T01:58:56+00:00",
+        "updated": "2013-05-08T01:58:57+00:00",
+        "values": {
+            "dummy_varchar": "testing"
+        },
+        "tags": ["update-test"]
+    }
+    
 

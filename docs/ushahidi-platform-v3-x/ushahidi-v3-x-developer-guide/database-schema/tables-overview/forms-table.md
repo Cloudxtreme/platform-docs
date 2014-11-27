@@ -38,6 +38,20 @@ the types.
   
 ## Syntax
 
+    
+    
+    CREATE  TABLE IF NOT EXISTS `forms` (
+      `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT ,
+      `name` VARCHAR(255) NOT NULL DEFAULT '' ,
+      `description` TEXT NULL DEFAULT NULL ,
+      `type` VARCHAR(30) NOT NULL DEFAULT 'report' COMMENT 'report, entity, stream' ,
+      `created` INT(10) UNSIGNED NOT NULL DEFAULT '0' ,
+      `updated` INT(10) UNSIGNED NOT NULL DEFAULT '0' ,
+      PRIMARY KEY (`id`) )
+    ENGINE = InnoDB
+    DEFAULT CHARACTER SET = utf8;
+    
+
 ## Form Types
 
   * **report** \- form/template for reports

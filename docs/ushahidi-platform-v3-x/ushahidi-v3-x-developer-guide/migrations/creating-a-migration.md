@@ -16,6 +16,35 @@ In our example above, the migration template would be created in:
 
 4\. Open the template:
 
+    
+    
+    <?php defined('SYSPATH') OR die('No direct script access.');
+    
+    class Migration_3_0_20130318155930 extends Minion_Migration_Base {
+    
+    	/**
+    	 * Run queries needed to apply this migration
+    	 *
+    	 * @param Kohana_Database $db Database connection
+    	 */
+    	public function up(Kohana_Database $db)
+    	{
+    		// $db->query(NULL, 'CREATE TABLE ... ');
+    	}
+    
+    	/**
+    	 * Run queries needed to remove this migration
+    	 *
+    	 * @param Kohana_Database $db Database connection
+    	 */
+    	public function down(Kohana_Database $db)
+    	{
+    		// $db->query(NULL, 'DROP TABLE ... ');
+    	}
+    
+    }
+    
+
 5\. Add the necessary queries to the up an down methods
 
   * Queries in the UP method apply the migration

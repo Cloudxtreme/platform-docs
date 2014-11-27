@@ -55,9 +55,26 @@ DocBlocks. A DocBlock is a C-style comment that begins with a `/**` and with a
 leading asterisk `*` on each line. Any line within a DocBlock that doesn't
 begin with a `*` will be ignored. Example:
 
+    
+    
+    /**
+     * Example use of DocBlocks in PHP
+     */
+    
+
 Secondly, DocBlocks must precede the code you are adding comments to. For
 example, if you wanted to document the function `foo()`, you would proceed as
 follows:
+
+    
+    
+    /**
+     * DocBlock comment for function "foo()"
+     */
+    function foo()
+    {
+    }
+    
 
 # Javascript
 

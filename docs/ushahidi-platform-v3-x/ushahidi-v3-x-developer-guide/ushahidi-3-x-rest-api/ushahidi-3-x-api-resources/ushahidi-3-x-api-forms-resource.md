@@ -27,8 +27,147 @@ can only be updated/deleted through their own API endpoints.
 POST https://ushv3.dev/api/v2/forms
 
 **Post Data**
+    
+    
+    {
+        "name":"Missing Persons Form",
+        "type":"report",
+        "description":"PFIF Form",
+        "groups":[
+            {
+                "label":"Person Record",
+                "priority": 1,
+                "attributes":[
+                    {
+                        "key":"full_name",
+                        "label":"Full Name",
+                        "type":"varchar",
+                        "input":"text",
+                        "required":true,
+                        "priority":1
+                    },
+                    {
+                        "key":"description",
+                        "label":"Description",
+                        "type":"text",
+                        "input":"textarea",
+                        "required":true,
+                        "priority":2
+                    },
+                    {
+                        "key":"dob",
+                        "label":"Date of Birth",
+                        "type":"int",
+                        "input":"date",
+                        "required":false,
+                        "priority":3
+                    },
+                    {
+                        "key":"missing_date",
+                        "label":"Missing Date",
+                        "type":"int",
+                        "input":"date",
+                        "required":true,
+                        "priority":4
+                    },
+                    {
+                        "key":"last_location",
+                        "label":"Last Known Location",
+                        "type":"varchar",
+                        "input":"text",
+                        "required":false,
+                        "priority":5
+                    },
+                    {
+                        "key":"status",
+                        "label":"Status",
+                        "type":"varchar",
+                        "input":"select",
+                        "required":false,
+                        "options":[
+                            "Missing",
+                            "Alive",
+                            "Dead"
+                        ],
+                        "priority":6
+                    }
+                ]
+            }
+        ]
+    }
+    
 
 **Response**
+    
+    
+    {
+        "id":1
+        "name":"Missing Persons Form",
+        "type":"report",
+        "description":"PFIF Form",
+        "groups":[
+            {
+                "label":"Person Record",
+                "priority": 1,
+                "attributes":[
+                    {
+                        "key":"full_name",
+                        "label":"Full Name",
+                        "type":"varchar",
+                        "input":"text",
+                        "required":true,
+                        "priority":1
+                    },
+                    {
+                        "key":"description",
+                        "label":"Description",
+                        "type":"text",
+                        "input":"textarea",
+                        "required":true,
+                        "priority":2
+                    },
+                    {
+                        "key":"dob",
+                        "label":"Date of Birth",
+                        "type":"int",
+                        "input":"date",
+                        "required":false,
+                        "priority":3
+                    },
+                    {
+                        "key":"missing_date",
+                        "label":"Missing Date",
+                        "type":"int",
+                        "input":"date",
+                        "required":true,
+                        "priority":4
+                    },
+                    {
+                        "key":"last_location",
+                        "label":"Last Known Location",
+                        "type":"varchar",
+                        "input":"text",
+                        "required":false,
+                        "priority":5
+                    },
+                    {
+                        "key":"status",
+                        "label":"Status",
+                        "type":"varchar",
+                        "input":"select",
+                        "required":false,
+                        "options":[
+                            "Missing",
+                            "Alive",
+                            "Dead"
+                        ],
+                        "priority":6
+                    }
+                ]
+            }
+        ]
+    }
+    
 
 # GET forms
 
@@ -110,6 +249,109 @@ Forms returned will be offset by this number of results
 GET https://ushv3.dev/api/v2/forms
 
 **Response**
+    
+    
+    {
+        "count": 2,
+        "results": [
+            {
+                "id": "1",
+                "name": "Missing Persons Form",
+                "description": "PFIF Form",
+                "type": "report"
+                "groups": [
+                    {
+                        "id": "1",
+                        "label": "Person Record",
+                        "priority": "1",
+                        "attributes": [
+                            {
+                                "unique": false,
+                                "input": "text",
+                                "priority": "99",
+                                "id": "1",
+                                "options": null,
+                                "key": "full_name",
+                                "label": "Full Name",
+                                "type": "varchar",
+                                "required": false,
+                                "default": null
+                            },
+                            {
+                                "unique": false,
+                                "input": "textarea",
+                                "priority": "99",
+                                "id": "2",
+                                "options": null,
+                                "key": "description",
+                                "label": "Description",
+                                "type": "text",
+                                "required": false,
+                                "default": null
+                            },
+                            {
+                                "unique": false,
+                                "input": "text",
+                                "priority": "99",
+                                "id": "3",
+                                "options": null,
+                                "key": "dob",
+                                "label": "Date of Birth",
+                                "type": "datetime",
+                                "required": false,
+                                "default": null
+                            },
+                            {
+                                "unique": false,
+                                "input": "text",
+                                "priority": "99",
+                                "id": "4",
+                                "options": null,
+                                "key": "missing_date",
+                                "label": "Missing Date",
+                                "type": "datetime",
+                                "required": false,
+                                "default": null
+                            },
+                            {
+                                "unique": false,
+                                "input": "text",
+                                "priority": "99",
+                                "id": "5",
+                                "options": null,
+                                "key": "last_location",
+                                "label": "Last Known Location",
+                                "type": "varchar",
+                                "required": false,
+                                "default": null
+                            },
+                            {
+                                "unique": false,
+                                "input": "select",
+                                "priority": "99",
+                                "id": "6",
+                                "options": [
+                                    "Missing",
+                                    "Alive",
+                                    "Dead"
+                                ],
+                                "key": "status",
+                                "label": "Status",
+                                "type": "varchar",
+                                "required": false,
+                                "default": null
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "2",
+                ...
+            }
+        ]
+    }
+    
 
   
 
@@ -152,6 +394,100 @@ The numerical id of the form being updated.
 GET http://ushv3.dev/api/v2/forms/1
 
 **Response**
+    
+    
+    {
+        "id": "1",
+        "name": "Missing Persons Form",
+        "description": "PFIF Form",
+        "type": "report"
+        "groups": [
+            {
+                "id": "1",
+                "label": "Person Record",
+                "priority": "1",
+                "attributes": [
+                    {
+                        "unique": false,
+                        "input": "text",
+                        "priority": "99",
+                        "id": "1",
+                        "options": null,
+                        "key": "full_name",
+                        "label": "Full Name",
+                        "type": "varchar",
+                        "required": false,
+                        "default": null
+                    },
+                    {
+                        "unique": false,
+                        "input": "textarea",
+                        "priority": "99",
+                        "id": "2",
+                        "options": null,
+                        "key": "description",
+                        "label": "Description",
+                        "type": "text",
+                        "required": false,
+                        "default": null
+                    },
+                    {
+                        "unique": false,
+                        "input": "text",
+                        "priority": "99",
+                        "id": "3",
+                        "options": null,
+                        "key": "dob",
+                        "label": "Date of Birth",
+                        "type": "datetime",
+                        "required": false,
+                        "default": null
+                    },
+                    {
+                        "unique": false,
+                        "input": "text",
+                        "priority": "99",
+                        "id": "4",
+                        "options": null,
+                        "key": "missing_date",
+                        "label": "Missing Date",
+                        "type": "datetime",
+                        "required": false,
+                        "default": null
+                    },
+                    {
+                        "unique": false,
+                        "input": "text",
+                        "priority": "99",
+                        "id": "5",
+                        "options": null,
+                        "key": "last_location",
+                        "label": "Last Known Location",
+                        "type": "varchar",
+                        "required": false,
+                        "default": null
+                    },
+                    {
+                        "unique": false,
+                        "input": "select",
+                        "priority": "99",
+                        "id": "6",
+                        "options": [
+                            "Missing",
+                            "Alive",
+                            "Dead"
+                        ],
+                        "key": "status",
+                        "label": "Status",
+                        "type": "varchar",
+                        "required": false,
+                        "default": null
+                    }
+                ]
+            }
+        ]
+    }
+    
 
 # PUT forms/:id
 
@@ -193,8 +529,86 @@ The numerical id of the form being updated.
 PUT http://ushv3.dev/api/v2/forms/1
 
 **Post Data**
+    
+    
+    {
+        "name":"Missing Persons Form",
+        "type":"report",
+        "description":"PFIF Form",
+    }
+    
 
 **Response**
+    
+    
+    {
+        "id":1
+        "name":"Missing Persons Form",
+        "type":"report",
+        "description":"PFIF Form",
+        "groups":[
+            {
+                "label":"Person Record",
+                "priority": 1,
+                "attributes":[
+                    {
+                        "key":"full_name",
+                        "label":"Full Name",
+                        "type":"varchar",
+                        "input":"text",
+                        "required":true,
+                        "priority":1
+                    },
+                    {
+                        "key":"description",
+                        "label":"Description",
+                        "type":"text",
+                        "input":"textarea",
+                        "required":true,
+                        "priority":2
+                    },
+                    {
+                        "key":"dob",
+                        "label":"Date of Birth",
+                        "type":"int",
+                        "input":"date",
+                        "required":false,
+                        "priority":3
+                    },
+                    {
+                        "key":"missing_date",
+                        "label":"Missing Date",
+                        "type":"int",
+                        "input":"date",
+                        "required":true,
+                        "priority":4
+                    },
+                    {
+                        "key":"last_location",
+                        "label":"Last Known Location",
+                        "type":"varchar",
+                        "input":"text",
+                        "required":false,
+                        "priority":5
+                    },
+                    {
+                        "key":"status",
+                        "label":"Status",
+                        "type":"varchar",
+                        "input":"select",
+                        "required":false,
+                        "options":[
+                            "Missing",
+                            "Alive",
+                            "Dead"
+                        ],
+                        "priority":6
+                    }
+                ]
+            }
+        ]
+    }
+    
 
 # DELETE forms/:id
 
@@ -236,4 +650,74 @@ The numerical id of the form being deleted.
 DELETE /api/v2/forms/2
 
 **Response**
+    
+    
+    {
+        "id":1
+        "name":"Missing Persons Form",
+        "type":"report",
+        "description":"PFIF Form",
+        "groups":[
+            {
+                "label":"Person Record",
+                "priority": 1,
+                "attributes":[
+                    {
+                        "key":"full_name",
+                        "label":"Full Name",
+                        "type":"varchar",
+                        "input":"text",
+                        "required":true,
+                        "priority":1
+                    },
+                    {
+                        "key":"description",
+                        "label":"Description",
+                        "type":"text",
+                        "input":"textarea",
+                        "required":true,
+                        "priority":2
+                    },
+                    {
+                        "key":"dob",
+                        "label":"Date of Birth",
+                        "type":"int",
+                        "input":"date",
+                        "required":false,
+                        "priority":3
+                    },
+                    {
+                        "key":"missing_date",
+                        "label":"Missing Date",
+                        "type":"int",
+                        "input":"date",
+                        "required":true,
+                        "priority":4
+                    },
+                    {
+                        "key":"last_location",
+                        "label":"Last Known Location",
+                        "type":"varchar",
+                        "input":"text",
+                        "required":false,
+                        "priority":5
+                    },
+                    {
+                        "key":"status",
+                        "label":"Status",
+                        "type":"varchar",
+                        "input":"select",
+                        "required":false,
+                        "options":[
+                            "Missing",
+                            "Alive",
+                            "Dead"
+                        ],
+                        "priority":6
+                    }
+                ]
+            }
+        ]
+    }
+    
 

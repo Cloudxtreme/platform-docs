@@ -77,6 +77,33 @@ primary post types are **report,****entity** and **revision**. Other Types.
   
 ## Syntax
 
+    
+    
+    CREATE  TABLE IF NOT EXISTS `posts` (
+      `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT ,
+      `parent_id` INT(11) UNSIGNED NOT NULL DEFAULT '0' ,
+      `form_id` INT(11) UNSIGNED NOT NULL DEFAULT '0' ,
+      `user_id` INT(11) UNSIGNED NOT NULL DEFAULT '0' ,
+      `type` VARCHAR(20) NOT NULL DEFAULT 'report' COMMENT 'report, revision, comments, alerts' ,
+      `title` VARCHAR(255) NULL DEFAULT NULL ,
+      `slug` VARCHAR(255) NULL DEFAULT NULL ,
+      `content` TEXT NULL DEFAULT NULL ,
+      `author` VARCHAR(150) NULL DEFAULT NULL ,
+      `email` VARCHAR(150) NULL DEFAULT NULL ,
+      `ip_address` INT(11) UNSIGNED NOT NULL DEFAULT '0' ,
+      `status` VARCHAR(20) NOT NULL DEFAULT 'draft' COMMENT 'draft, publish, pending' ,
+      `created` INT(10) UNSIGNED NOT NULL DEFAULT '0' ,
+      `updated` INT(10) UNSIGNED NOT NULL DEFAULT '0' ,
+      PRIMARY KEY (`id`) ,
+      INDEX `idx_parent_id` (`parent_id` ASC) ,
+      INDEX `idx_form_id` (`form_id` ASC) ,
+      INDEX `idx_user_id` (`user_id` ASC) ,
+      INDEX `idx_type` (`type` ASC) ,
+      INDEX `idx_status` (`status` ASC) )
+    ENGINE = InnoDB
+    DEFAULT CHARACTER SET = utf8;
+    
+
 ## Post 'Types'
 
 #### Primary Types

@@ -80,3 +80,25 @@ The default value to use when this attribute is rendered on the form
   
 ## Syntax
 
+    
+    
+    CREATE  TABLE IF NOT EXISTS `form_attributes` (
+      `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT ,
+      `form_id` INT(11) NOT NULL DEFAULT '0' ,
+      `form_group_id` INT(11) NOT NULL DEFAULT '0' ,
+      `key` VARCHAR(150) NOT NULL DEFAULT '' ,
+      `label` VARCHAR(150) NOT NULL DEFAULT '' ,
+      `input` VARCHAR(30) NOT NULL DEFAULT 'text' COMMENT 'text, textarea, select, radio, checkbox, file, date' ,
+      `type` VARCHAR(30) NOT NULL DEFAULT 'varchar' COMMENT 'decimal, int, geometry, text, varchar, point' ,
+      `required` TINYINT(1) NOT NULL DEFAULT '0' ,
+      `default` VARCHAR(255) NULL DEFAULT NULL ,
+      `unique` TINYINT(1) NOT NULL DEFAULT '0' ,
+      `priority` TINYINT(4) NOT NULL DEFAULT '99' ,
+      `options` VARCHAR(255) NULL DEFAULT NULL ,
+      PRIMARY KEY (`id`) ,
+      UNIQUE INDEX `unq_form_id_key` (`form_id` ASC, `key` ASC) ,
+      INDEX `idx_form_group_id` (`form_group_id` ASC) )
+    ENGINE = InnoDB
+    DEFAULT CHARACTER SET = utf8;
+    
+

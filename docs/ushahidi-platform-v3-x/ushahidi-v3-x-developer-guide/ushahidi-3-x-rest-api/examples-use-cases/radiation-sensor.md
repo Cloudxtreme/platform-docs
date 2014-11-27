@@ -29,6 +29,48 @@ data that will be accepted.Each device is defined by:
   * Longitude
 
 **POST /api/v2/forms**
+    
+    
+    {
+        "name": "Radiation Sensor",
+        "description": "Defines a single radiation sensor device",
+        "type": "report",
+        "groups":[
+            {
+                "label": "Sensor",
+                "attributes": [
+                    {
+                        "key": "device_id",
+                        "label": "Device ID", 
+                        "type": "varchar",
+                        "required": true,
+                        "input": "text"
+                    },
+                    {
+                        "key": "location_name",
+                        "label": "Location Name", 
+                        "type": "varchar",
+                        "required": true,
+                        "input": "text"
+                    },
+                    {
+                        "key": "latitude",
+                        "label": "Latitude", 
+                        "type": "decimal",
+                        "required": true,
+                        "input": "text"
+                    },
+                    {
+                        "key": "longitude",
+                        "label": "Longitude", 
+                        "type": "decimal",
+                        "required": true,
+                        "input": "text"
+                    },
+                ]
+            }
+        ]
+    }
 
 # 2\. Define a Sensor Reading
 
@@ -43,6 +85,42 @@ collects.In this case:
 **parent_id** references the ID of the form we just created above. The sensor reading form belongs to the device form.
 
 **POST /api/v2/forms**
+    
+    
+    {
+        "parent_id":1,
+        "name": "Sensor Readings",
+        "description": "Radiation sensor cpm readings",
+        "type": "report",
+        "groups":[
+            {
+                "label": "Reading",
+                "attributes": [
+                    {
+                        "key": "unit",
+                        "label": "Unit", 
+                        "type": "varchar",
+                        "required": true,
+                        "input": "text"
+                    },
+                    {
+                        "key": "value",
+                        "label": "Value", 
+                        "type": "int",
+                        "required": true,
+                        "input": "text"
+                    },
+                    {
+                        "key": "captured_at",
+                        "label": "Captured At", 
+                        "type": "datetime",
+                        "required": true,
+                        "input": "text"
+                    }
+                ]
+            }
+        ]
+    }
 
 # 3\. Create a Sensor Device
 
@@ -50,6 +128,21 @@ Lets create a new device! Each of these devices will have an endpoint to
 receive sensor data.
 
 **POST /api/v2/posts**
+    
+    
+    {
+        "form_id": 1,
+        "locale":"en_US",
+        "type": "report",
+        "status": "published",
+        "title": "Sensor 20823609",
+        "values":{
+            "device_id": "20823609",
+            "latitude": 34.669824,
+            "longitude": 138.949453,
+            "location_name": "Kitadai-7-2 Ottozawa Okuma"
+        }
+    }
 
 # 4\. Create a Sensor Reading
 
@@ -61,6 +154,19 @@ _ **NOTE:** _ We can push multiple data streams updates from a device to
 Ushahidi. **form_id** below denotes which datastream we're pushing into.
 
 **POST /api/v2/posts/:id/updates**
+    
+    
+    {
+        "form_id": 2,
+        "locale":"en_US",
+        "type": "update",
+        "status": "published",
+        "values":{
+            "unit": "cpm",
+            "value": 20,
+            "captured_at": "2013-03-10T07:43:41Z"
+        }
+    }
 
 # Forms
 
