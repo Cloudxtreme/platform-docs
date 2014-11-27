@@ -1,7 +1,7 @@
 #!/usr/bin/python
 import html2text
 from lxml import etree
-import os
+import os, re
 
 # Should really share this somehow..
 from Wiki import *
@@ -72,7 +72,8 @@ def convertXMLToMarkdown(page):
 # Get rendered content then convert to markdown
 def convertToMarkdown(page):
     result = wiki.server.confluence2.renderContent(wiki.token, page['space'], page['id'], '', {"style" : "clean"})
-
+    # Hack to replace syntaxhighlighter macro with vanilla code blocks
+    result = re.sub(r'<script type="syntaxhighlighter".*?><!\[CDATA\[(.*?)\]\]></script>', r'<pre>\1</pre>', result, flags=re.DOTALL)
     return "# " + page['title'] + "\n\n" + h.handle(unicode(result).encode("ascii","ignore"))
 
 
