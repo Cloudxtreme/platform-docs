@@ -2,6 +2,7 @@
 from Wiki import *
 import html2text
 from lxml import etree
+import os
 
 wiki = Wiki()
 
@@ -17,6 +18,8 @@ page = wiki.server.confluence2.getPage(wiki.token, spacekey, pagetitle)
 if page is None:
    exit("Could not find page " + spacekey + ":" + pagetitle)
 
+scriptspath = os.path.dirname(os.path.realpath(__file__))
+
 # Wrap Confluence XML in headers and such
 strWrapperTop = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" \
   "<!DOCTYPE ac:confluence SYSTEM \"confluence-all.dtd\" [ " \
@@ -24,6 +27,8 @@ strWrapperTop = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" \
   "<!ENTITY nbsp   \"&#160;\">" \
   "<!ENTITY ndash   \"&#8211;\">" \
   "<!ENTITY mdash   \"&#8212;\">" \
+  "<!ENTITY rsquo   \"&#8217;\">" \
+  "<!ENTITY lsquo   \"&#8216;\">" \
   " ]>" \
   "<ac:confluence xmlns:ac=\"http://www.atlassian.com/schema/confluence/4/ac/\" xmlns:ri=\"http://www.atlassian.com/schema/confluence/4/ri/\" xmlns=\"http://www.atlassian.com/schema/confluence/4/\">"
 strWrapperBottom = "</ac:confluence>"
@@ -31,7 +36,7 @@ strConfluenceXMLDoc = strWrapperTop + page['content'] + strWrapperBottom
 
 doc = etree.fromstring(strConfluenceXMLDoc)
 #xslt_tree = etree.parse("confluence2markdown.xsl")
-xslt_tree = etree.parse("confluence2xhtml.xsl")
+xslt_tree = etree.parse(scriptspath + "/confluence2xhtml.xsl")
 transform = etree.XSLT(xslt_tree)
 result = transform(doc)
 
