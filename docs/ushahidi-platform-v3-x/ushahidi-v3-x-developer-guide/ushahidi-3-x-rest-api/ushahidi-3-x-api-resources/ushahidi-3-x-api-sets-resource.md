@@ -56,80 +56,18 @@ Listing all sets
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-q
-
-|
-
-Optional
-
-|
-
-Only sets containing this search string will be returned, matched against
-'name' property  
-  
-name
-
-|
-
-Optional
-
-|
-
-Only sets with a matching 'name' will be returned  
-  
+q| Optional| Only sets containing this search string will be returned, matched
+against 'name' property  
+name| Optional| Only sets with a matching 'name' will be returned  
 user_id| Optional| Only sets with this user_id will be returned  
-  
-order
-
-|
-
-Optional
-
-|
-
-Returned sets will be sorted in this order: ASC or DESC. Default: DESC  
-  
-order_by
-
-|
-
-Optional
-
-|
-
-Returned sets will be sorted by this field. Default: created  
-  
-limit
-
-|
-
-Optional
-
-|
-
-Limit number of results returned. Default: 50. Max: 500  
-  
-offset
-
-|
-
-Optional
-
-|
-
-Sets returned will be offset by this number of results  
+order| Optional| Returned sets will be sorted in this order: ASC or DESC.
+Default: DESC  
+order_by| Optional| Returned sets will be sorted by this field. Default:
+created  
+limit| Optional| Limit number of results returned. Default: 50. Max: 500  
+offset| Optional| Sets returned will be offset by this number of results  
   
 ##### Example Request
 
@@ -212,27 +150,9 @@ Get a single set
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-id
-
-|
-
-Required
-
-|
-
-The numerical id of the set being updated.  
+id| Required| The numerical id of the set being updated.  
   
 ##### Example Request
 
@@ -262,27 +182,9 @@ Update a set
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-id
-
-|
-
-Required
-
-|
-
-The numerical id of the set being updated.  
+id| Required| The numerical id of the set being updated.  
   
 ##### Example Request
 
@@ -321,27 +223,9 @@ Deleting a set
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-id
-
-|
-
-Required
-
-|
-
-The numerical id of the set being deleted.  
+id| Required| The numerical id of the set being deleted.  
   
 ##### Example request
 

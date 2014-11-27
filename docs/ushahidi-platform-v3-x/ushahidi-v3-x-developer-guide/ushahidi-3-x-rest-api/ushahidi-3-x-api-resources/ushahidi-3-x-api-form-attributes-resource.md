@@ -73,79 +73,18 @@ Listing all attributes
 
 ##### Query Parameters (not yet implemented)
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-q
-
-|
-
-Optional
-
-|
-
-Only attributes containing this search string will be returned, matched
-against 'tag' property  
-  
-type
-
-|
-
-Optional
-
-|
-
-Only attributes of this type will be returned: report, revision, comment or
-alert  
-  
-order
-
-|
-
-Optional
-
-|
-
-Returned attributes will be sorted in this order: ASC or DESC. Default: DESC  
-  
-order_by
-
-|
-
-Optional
-
-|
-
-Returned attributes will be sorted by this field. Default: created  
-  
-limit
-
-|
-
-Optional
-
-|
-
-Limit number of results returned. Default: 50. Max: 500  
-  
-offset
-
-|
-
-Optional
-
-|
-
-attributes returned will be offset by this number of results  
+q| Optional| Only attributes containing this search string will be returned,
+matched against 'tag' property  
+type| Optional| Only attributes of this type will be returned: report,
+revision, comment or alert  
+order| Optional| Returned attributes will be sorted in this order: ASC or
+DESC. Default: DESC  
+order_by| Optional| Returned attributes will be sorted by this field. Default:
+created  
+limit| Optional| Limit number of results returned. Default: 50. Max: 500  
+offset| Optional| attributes returned will be offset by this number of results  
   
 ##### Example Request
 
@@ -225,27 +164,9 @@ Get a singleattribute
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-id
-
-|
-
-Required
-
-|
-
-The numerical id of the attribute being updated.  
+id| Required| The numerical id of the attribute being updated.  
   
 ##### Example Request
 
@@ -282,27 +203,9 @@ add/remove attributes from groups use the Groups api resource.
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-id
-
-|
-
-Required
-
-|
-
-The numerical id of the attribute being updated.  
+id| Required| The numerical id of the attribute being updated.  
   
 ##### Example Request
 
@@ -352,27 +255,9 @@ Deleting aattribute
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-id
-
-|
-
-Required
-
-|
-
-The numerical id of the attribute being deleted.  
+id| Required| The numerical id of the attribute being deleted.  
   
 ##### Example request
 

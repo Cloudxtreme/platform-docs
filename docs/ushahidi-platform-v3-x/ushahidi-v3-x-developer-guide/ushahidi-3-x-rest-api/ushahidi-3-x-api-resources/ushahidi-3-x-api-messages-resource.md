@@ -89,94 +89,29 @@ Listing all messages
 Note with no parameters the messages API defaults to returning messages with
 _direction =_ _incoming_ and _status != archived._
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-q
-
-|
-
-Optional
-
-|
-
-Only messages containing this search string will be returned, matched against
-'title' and 'message' properties  
-  
-type
-
-|
-
-Optional
-
-|
-
-Only messages of this type will be returned: report, revision, comment or
-alert  
-  
+q| Optional| Only messages containing this search string will be returned,
+matched against 'title' and 'message' properties  
+type| Optional| Only messages of this type will be returned: report, revision,
+comment or alert  
 direction| Optional| Filter messages based on direction. incoming or outgoing.
 Default: incoming  
-status| Optional|
-
-Filter messages based on status.  
+status| Optional| Filter messages based on status.  
 Options: pending, pending_poll, archived, received, expired, cancelled,
 failed, unknown, sent, all.  
 Default: != archived  
-  
 parent| Optional| Filter by parent message id  
 contact| Optional| Filter by contact id  
 data_feed| Optional| Filter by data feed id  
 data_provider| Optional| Filter by data provider id  
 post| Optional| Filter by post id  
-  
-order
-
-|
-
-Optional
-
-|
-
-Returned messages will be sorted in this order: ASC or DESC. Default: DESC  
-  
-order_by
-
-|
-
-Optional
-
-|
-
-Returned messages will be sorted by this field. Default: created  
-  
-limit
-
-|
-
-Optional
-
-|
-
-Limit number of results returned. Default: 50. Max: 500  
-  
-offset
-
-|
-
-Optional
-
-|
-
-messages returned will be offset by this number of results  
+order| Optional| Returned messages will be sorted in this order: ASC or DESC.
+Default: DESC  
+order_by| Optional| Returned messages will be sorted by this field. Default:
+created  
+limit| Optional| Limit number of results returned. Default: 50. Max: 500  
+offset| Optional| messages returned will be offset by this number of results  
   
 ##### Example Request
 
@@ -455,27 +390,9 @@ Get a singlemessage
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-id
-
-|
-
-Required
-
-|
-
-The numerical id of the message being updated.  
+id| Required| The numerical id of the message being updated.  
   
 ##### Example Request
 
@@ -536,27 +453,9 @@ incoming or outgoing
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-id
-
-|
-
-Required
-
-|
-
-The numerical id of the message being updated.  
+id| Required| The numerical id of the message being updated.  
   
 ##### Example Request
 

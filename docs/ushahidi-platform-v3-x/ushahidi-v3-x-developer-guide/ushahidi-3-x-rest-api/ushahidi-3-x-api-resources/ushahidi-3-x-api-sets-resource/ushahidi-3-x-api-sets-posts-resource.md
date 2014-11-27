@@ -81,69 +81,17 @@ Listing all Sets Posts
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-q
-
-|
-
-Optional
-
-|  
-  
-|
-
-|  
-  
-order
-
-|
-
-Optional
-
-|
-
-Returned [resources] will be sorted in this order: ASC or DESC. Default: DESC  
-  
-order_by
-
-|
-
-Optional
-
-|
-
-Returned [resources] will be sorted by this field. Default: created  
-  
-limit
-
-|
-
-Optional
-
-|
-
-Limit number of results returned. Default: 50. Max: 500  
-  
-offset
-
-|
-
-Optional
-
-|
-
-[Resources] returned will be offset by this number of results  
+q| Optional|  
+| |  
+order| Optional| Returned [resources] will be sorted in this order: ASC or
+DESC. Default: DESC  
+order_by| Optional| Returned [resources] will be sorted by this field.
+Default: created  
+limit| Optional| Limit number of results returned. Default: 50. Max: 500  
+offset| Optional| [Resources] returned will be offset by this number of
+results  
   
 ##### Example Request
 
@@ -213,27 +161,9 @@ Get a single Set Post
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-id
-
-|
-
-Required
-
-|
-
-The numerical id of the set post being updated.  
+id| Required| The numerical id of the set post being updated.  
   
 ##### Example Request
 
@@ -291,27 +221,9 @@ Deleting a Set Post
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-id
-
-|
-
-Required
-
-|
-
-The numerical id of the set post being deleted.  
+id| Required| The numerical id of the set post being deleted.  
   
 ##### Example request
 

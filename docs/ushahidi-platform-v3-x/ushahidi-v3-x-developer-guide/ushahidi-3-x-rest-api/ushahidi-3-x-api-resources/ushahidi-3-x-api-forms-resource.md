@@ -181,68 +181,16 @@ Form attributes and groups are returned along with the form.
 
 ##### Query Parameters (no yet implemented)
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-q
-
-|
-
-Optional
-
-|
-
-Only forms containing this search string will be returned, matched against
-'tag' property  
-  
-order
-
-|
-
-Optional
-
-|
-
-Returned forms will be sorted in this order: ASC or DESC. Default: DESC  
-  
-order_by
-
-|
-
-Optional
-
-|
-
-Returned forms will be sorted by this field. Default: created  
-  
-limit
-
-|
-
-Optional
-
-|
-
-Limit number of results returned. Default: 50. Max: 500  
-  
-offset
-
-|
-
-Optional
-
-|
-
-Forms returned will be offset by this number of results  
+q| Optional| Only forms containing this search string will be returned,
+matched against 'tag' property  
+order| Optional| Returned forms will be sorted in this order: ASC or DESC.
+Default: DESC  
+order_by| Optional| Returned forms will be sorted by this field. Default:
+created  
+limit| Optional| Limit number of results returned. Default: 50. Max: 500  
+offset| Optional| Forms returned will be offset by this number of results  
   
 ##### Example Request
 
@@ -367,27 +315,9 @@ Form attributes and groups are returned along with the form.
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-id
-
-|
-
-Required
-
-|
-
-The numerical id of the form being updated.  
+id| Required| The numerical id of the form being updated.  
   
 ##### Example Request
 
@@ -502,27 +432,9 @@ have to be updated through their respective endpoints.
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-id
-
-|
-
-Required
-
-|
-
-The numerical id of the form being updated.  
+id| Required| The numerical id of the form being updated.  
   
 ##### Example Request
 
@@ -623,27 +535,9 @@ to many forms so will not be deleted.
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-id
-
-|
-
-Required
-
-|
-
-The numerical id of the form being deleted.  
+id| Required| The numerical id of the form being deleted.  
   
 ##### Example request
 

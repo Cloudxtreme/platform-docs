@@ -64,57 +64,14 @@ Listing all groups
 
 ##### Query Parameters (Not implemented yet)
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-order
-
-|
-
-Optional
-
-|
-
-Returned groups will be sorted in this order: ASC or DESC. Default: DESC  
-  
-order_by
-
-|
-
-Optional
-
-|
-
-Returned groups will be sorted by this field. Default: created  
-  
-limit
-
-|
-
-Optional
-
-|
-
-Limit number of results returned. Default: 50. Max: 500  
-  
-offset
-
-|
-
-Optional
-
-|
-
-groups returned will be offset by this number of results  
+order| Optional| Returned groups will be sorted in this order: ASC or DESC.
+Default: DESC  
+order_by| Optional| Returned groups will be sorted by this field. Default:
+created  
+limit| Optional| Limit number of results returned. Default: 50. Max: 500  
+offset| Optional| groups returned will be offset by this number of results  
   
 ##### Example Request
 
@@ -173,27 +130,9 @@ Get a singlegroup
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-id
-
-|
-
-Required
-
-|
-
-The numerical id of the group being updated.  
+id| Required| The numerical id of the group being updated.  
   
 ##### Example Request
 
@@ -237,27 +176,9 @@ Update agroup
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-id
-
-|
-
-Required
-
-|
-
-The numerical id of the group being updated.  
+id| Required| The numerical id of the group being updated.  
   
 ##### Example Request
 
@@ -310,27 +231,9 @@ Deleting agroup
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-id
-
-|
-
-Required
-
-|
-
-The numerical id of the group being deleted.  
+id| Required| The numerical id of the group being deleted.  
   
 ##### Example request
 
@@ -454,57 +357,14 @@ List all attributes from a group.
 
 ##### Query Parameters (Not implemented)
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-order
-
-|
-
-Optional
-
-|
-
-Returned groups will be sorted in this order: ASC or DESC. Default: DESC  
-  
-order_by
-
-|
-
-Optional
-
-|
-
-Returned groups will be sorted by this field. Default: created  
-  
-limit
-
-|
-
-Optional
-
-|
-
-Limit number of results returned. Default: 50. Max: 500  
-  
-offset
-
-|
-
-Optional
-
-|
-
-groups returned will be offset by this number of results  
+order| Optional| Returned groups will be sorted in this order: ASC or DESC.
+Default: DESC  
+order_by| Optional| Returned groups will be sorted by this field. Default:
+created  
+limit| Optional| Limit number of results returned. Default: 50. Max: 500  
+offset| Optional| groups returned will be offset by this number of results  
   
 ##### Example Request
 
@@ -553,27 +413,9 @@ Find a single attribute in a group.
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-id
-
-|
-
-Required
-
-|
-
-The numerical id of the group being updated.  
+id| Required| The numerical id of the group being updated.  
   
 ##### Example Request
 
@@ -610,27 +452,9 @@ attribute entirely.
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-id
-
-|
-
-Required
-
-|
-
-The numerical id of the group being updated.  
+id| Required| The numerical id of the group being updated.  
   
 ##### Example Request
 

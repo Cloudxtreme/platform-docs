@@ -6,32 +6,16 @@ These are all places where communities put their sensor data; they're good
 places to look for existing projects, and also places to potentially add
 sensor data to Ushahidi v3.x from.  
 
-**Site**
-
-|
-
-**Data access**
-
-|
-
-**Notes**  
-  
+**Site**| **Data access**| **Notes**  
 ---|---|---  
-  
-[xively.com](http://www.xively.com/)
-
-|
-
-Rest API: <https://xively.com/dev/docs/api/>
+[xively.com](http://www.xively.com/)| Rest API:
+<https://xively.com/dev/docs/api/>
 
 API objects: product: device: feed: datastream: datapoint.
 
-Can pull data snapshots, and png images of recent data values.
-
-|
-
-Cost: developer account is free for up to 5 sensor feeds (but only stores data
-for 30 days)
+Can pull data snapshots, and png images of recent data values.| Cost:
+developer account is free for up to 5 sensor feeds (but only stores data for
+30 days)
 
 Community: can discover feeds at:
 <https://xively.com/dev/docs/api/data/read/all_feeds/>  
@@ -48,28 +32,16 @@ Community: can discover feeds at:
 |  
 |  
   
-  
-[nimbits.com](http://www.nimbits.com/)
-
-|  
+[nimbits.com](http://www.nimbits.com/)|  
 |  
   
-  
-[grovestreams.com](http://grovestreams.com)
-
-|  
+[grovestreams.com](http://grovestreams.com)|  
 |  
   
-  
-[emoncms.org](http://emoncms.org)
-
-|  
+[emoncms.org](http://emoncms.org)|  
 |  
   
-  
-direct dump into googledocs
-
-|  
+direct dump into googledocs|  
 |  
   
   

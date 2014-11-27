@@ -64,74 +64,20 @@ Listing all users
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-q
-
-|
-
-Optional
-
-|
-
-Only users containing this search string will be returned, matched against
-'email', 'first_name', 'last_name' and 'username' properties  
-  
+q| Optional| Only users containing this search string will be returned,
+matched against 'email', 'first_name', 'last_name' and 'username' properties  
 email| Optional| Filter results by email address  
 first_name| Optional| Filter results by first name  
 last_name| Optional| Filter results by last name  
 username| Optional| Filter results by username  
-  
-order
-
-|
-
-Optional
-
-|
-
-Returned users will be sorted in this order: ASC or DESC. Default: DESC  
-  
-order_by
-
-|
-
-Optional
-
-|
-
-Returned users will be sorted by this field. Allowed: id, created, email,
-username Default: created  
-  
-limit
-
-|
-
-Optional
-
-|
-
-Limit number of results returned. Default: 50. Max: 500  
-  
-offset
-
-|
-
-Optional
-
-|
-
-Users returned will be offset by this number of results  
+order| Optional| Returned users will be sorted in this order: ASC or DESC.
+Default: DESC  
+order_by| Optional| Returned users will be sorted by this field. Allowed: id,
+created, email, username Default: created  
+limit| Optional| Limit number of results returned. Default: 50. Max: 500  
+offset| Optional| Users returned will be offset by this number of results  
   
 ##### Example Request
 
@@ -236,27 +182,9 @@ Get a single user
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-id
-
-|
-
-Required
-
-|
-
-The numerical id of the user being updated
+id| Required| The numerical id of the user being updated
 
 In a special case this can also be 'me' to get the current user  
   
@@ -293,27 +221,9 @@ Update a user
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-id
-
-|
-
-Required
-
-|
-
-The numerical id of the user being updated.
+id| Required| The numerical id of the user being updated.
 
 In a special case this can also be 'me' to get the current user  
   
@@ -362,27 +272,9 @@ Deleting a user
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-id
-
-|
-
-Required
-
-|
-
-The numerical id of the user being deleted.  
+id| Required| The numerical id of the user being deleted.  
   
 ##### Example request
 

@@ -9,32 +9,12 @@ a post.
 
 ## Definitions
 
-Column
-
-|
-
-Description  
-  
+Column  |  Description  
 ---|---  
-  
-`name`
-
-|
-
-Name of the form  
-  
-`description`
-
-|
-
-Description of the form  
-  
-`type`
-
-|
-
-primary form types are **report**, **entity** and **stream**. Descriptions of
-the types.  
+`name` |  Name of the form  
+`description` |  Description of the form  
+`type` |  primary form types are **report**, **entity** and **stream**.
+Descriptions of the types.  
   
 ## Syntax
 

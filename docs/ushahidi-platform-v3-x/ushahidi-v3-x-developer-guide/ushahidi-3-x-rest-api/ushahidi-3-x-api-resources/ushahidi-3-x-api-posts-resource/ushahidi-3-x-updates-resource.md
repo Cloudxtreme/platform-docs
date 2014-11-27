@@ -88,150 +88,30 @@ Listing all posts
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-q
-
-|
-
-Optional
-
-|
-
-Only Posts containing this search string will be returned, matched against
-post title and content  
-  
-type
-
-|
-
-Optional
-
-|
-
-Only posts of this type will be returned: report, revision, comment or alert  
-  
+q| Optional| Only Posts containing this search string will be returned,
+matched against post title and content  
+type| Optional| Only posts of this type will be returned: report, revision,
+comment or alert  
 locale| Optional| Only posts with matching locale will be returned  
-  
-slug
-
-|
-
-Optional
-
-|
-
-Only posts with a matching slug will be returned  
-  
-form_id
-
-|
-
-Optional
-
-|
-
-Only posts with this form_id will be returned  
-  
-user_id
-
-|
-
-Optional
-
-|
-
-Only posts created by this user_id will be returned  
-  
-created_before
-
-|
-
-Optional
-
-|
-
-Returned posts will have a created date smaller than this date  
-  
-created_after
-
-|
-
-Optional
-
-|
-
-Returned posts will have a created date greater than this date  
-  
-updated_before
-
-|
-
-Optional
-
-|
-
-Returned posts will have an updated date smaller than this date  
-  
-updated_after
-
-|
-
-Optional
-
-|
-
-Returned posts will have an updated date greater than this date  
-  
-order
-
-|
-
-Optional
-
-|
-
-Returned posts will be sorted in this order: ASC or DESC. Default: DESC  
-  
-order_by
-
-|
-
-Optional
-
-|
-
-Returned posts will be sorted by this field. Default: created  
-  
-limit
-
-|
-
-Optional
-
-|
-
-Limit number of results returned. Default: 50. Max: 500  
-  
-offset
-
-|
-
-Optional
-
-|
-
-Posts returned will be offset by this number of results  
+slug| Optional| Only posts with a matching slug will be returned  
+form_id| Optional| Only posts with this form_id will be returned  
+user_id| Optional| Only posts created by this user_id will be returned  
+created_before| Optional| Returned posts will have a created date smaller than
+this date  
+created_after| Optional| Returned posts will have a created date greater than
+this date  
+updated_before| Optional| Returned posts will have an updated date smaller
+than this date  
+updated_after| Optional| Returned posts will have an updated date greater than
+this date  
+order| Optional| Returned posts will be sorted in this order: ASC or DESC.
+Default: DESC  
+order_by| Optional| Returned posts will be sorted by this field. Default:
+created  
+limit| Optional| Limit number of results returned. Default: 50. Max: 500  
+offset| Optional| Posts returned will be offset by this number of results  
   
 Posts can also be filtered by form attributes by using the attribute as a
 parameter. ie
@@ -322,27 +202,9 @@ Get a single post
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-id
-
-|
-
-Required
-
-|
-
-The numerical id of the post being updated.  
+id| Required| The numerical id of the post being updated.  
   
 ##### Example Request
 
@@ -391,27 +253,9 @@ Update a post
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-id
-
-|
-
-Required
-
-|
-
-The numerical id of the post being updated.  
+id| Required| The numerical id of the post being updated.  
   
 ##### Example Request
 
@@ -476,27 +320,9 @@ Deleting a post
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-id
-
-|
-
-Required
-
-|
-
-The numerical id of the post being deleted.  
+id| Required| The numerical id of the post being deleted.  
   
 ##### Example request
 

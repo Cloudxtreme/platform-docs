@@ -62,57 +62,14 @@ Listing all media
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-order
-
-|
-
-Optional
-
-|
-
-Returned media will be sorted in this order: ASC or DESC. Default: DESC  
-  
-order_by
-
-|
-
-Optional
-
-|
-
-Returned media will be sorted by this field. Default: created  
-  
-limit
-
-|
-
-Optional
-
-|
-
-Limit number of results returned. Default: 50. Max: 500  
-  
-offset
-
-|
-
-Optional
-
-|
-
-Media returned will be offset by this number of results  
+order| Optional| Returned media will be sorted in this order: ASC or DESC.
+Default: DESC  
+order_by| Optional| Returned media will be sorted by this field. Default:
+created  
+limit| Optional| Limit number of results returned. Default: 50. Max: 500  
+offset| Optional| Media returned will be offset by this number of results  
   
 ##### Example Request
 
@@ -179,27 +136,9 @@ Get a single media
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-id
-
-|
-
-Required
-
-|
-
-The numerical id of the media being updated.  
+id| Required| The numerical id of the media being updated.  
   
 ##### Example Request
 
@@ -237,27 +176,9 @@ Deleting a media
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-id
-
-|
-
-Required
-
-|
-
-The numerical id of the media being deleted.  
+id| Required| The numerical id of the media being deleted.  
   
 ##### Example request
 

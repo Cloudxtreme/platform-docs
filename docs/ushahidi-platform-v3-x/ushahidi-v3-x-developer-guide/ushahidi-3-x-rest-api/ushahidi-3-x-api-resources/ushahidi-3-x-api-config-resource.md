@@ -30,27 +30,9 @@ Listing all config entries
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-group
-
-|
-
-Optional
-
-|
-
-The group name to return config entries for  
+group| Optional| The group name to return config entries for  
   
 ##### Example Request
 
@@ -137,28 +119,9 @@ Get a single config entry
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-id
-
-|
-
-Required
-
-|
-
-The config key of the config entry  
-  
+id| Required| The config key of the config entry  
 group| Required| The group name of the config entry  
   
 ##### Example Request
@@ -191,28 +154,9 @@ Update a config entry
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-id
-
-|
-
-Required
-
-|
-
-The config key of the config entry being updated.  
-  
+id| Required| The config key of the config entry being updated.  
 group| Required| The group name of the config entry  
   
 ##### Example Request

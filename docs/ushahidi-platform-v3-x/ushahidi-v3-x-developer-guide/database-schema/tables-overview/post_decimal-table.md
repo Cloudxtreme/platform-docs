@@ -12,35 +12,12 @@ spatial table (post_point/post_geometry).
 
 ## Definitions
 
-Column
-
-|
-
-Description  
-  
+Column  |  Description  
 ---|---  
-  
-`post_id`
-
-|
-
-The post that this value belongs to  
-  
-`form_attribute_id`
-
-|
-
-The form_attribute that this value belongs to  
-  
-`value`
-
-|
-
-The value  
-  
-`created`
-
-|  
+`post_id` |  The post that this value belongs to  
+`form_attribute_id` |  The form_attribute that this value belongs to  
+`value` |  The value  
+`created` |  
   
 ## Syntax
 

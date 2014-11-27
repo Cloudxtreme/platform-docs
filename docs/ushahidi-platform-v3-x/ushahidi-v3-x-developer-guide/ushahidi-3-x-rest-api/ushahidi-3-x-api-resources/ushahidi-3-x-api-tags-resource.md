@@ -62,81 +62,19 @@ Listing all tags
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-q
-
-|
-
-Optional
-
-|
-
-Only Tags containing this search string will be returned, matched against
-'tag' property  
-  
-type
-
-|
-
-Optional
-
-|
-
-Only tags of this type will be returned: category, status  
-  
+q| Optional| Only Tags containing this search string will be returned, matched
+against 'tag' property  
+type| Optional| Only tags of this type will be returned: category, status  
 parent| Optional| Only tags with a matching parent_id will be returned  
 tag| Optional| Only tags with a matching tag will be returned  
-  
-order
-
-|
-
-Optional
-
-|
-
-Returned tags will be sorted in this order: ASC or DESC. Default: ASC  
-  
-order_by
-
-|
-
-Optional
-
-|
-
-Returned tags will be sorted by this field. Default: priority  
-  
-limit
-
-|
-
-Optional
-
-|
-
-Limit number of results returned. Default: 50. Max: 500  
-  
-offset
-
-|
-
-Optional
-
-|
-
-Tags returned will be offset by this number of results  
+order| Optional| Returned tags will be sorted in this order: ASC or DESC.
+Default: ASC  
+order_by| Optional| Returned tags will be sorted by this field. Default:
+priority  
+limit| Optional| Limit number of results returned. Default: 50. Max: 500  
+offset| Optional| Tags returned will be offset by this number of results  
   
 ##### Example Request
 
@@ -275,27 +213,9 @@ Get a single tag
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-id
-
-|
-
-Required
-
-|
-
-The numerical id of the tag being updated.  
+id| Required| The numerical id of the tag being updated.  
   
 ##### Example Request
 
@@ -326,27 +246,9 @@ Update a tag
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-id
-
-|
-
-Required
-
-|
-
-The numerical id of the tag being updated.  
+id| Required| The numerical id of the tag being updated.  
   
 ##### Example Request
 
@@ -388,27 +290,9 @@ Deleting a tag
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-id
-
-|
-
-Required
-
-|
-
-The numerical id of the tag being deleted.  
+id| Required| The numerical id of the tag being deleted.  
   
 ##### Example request
 

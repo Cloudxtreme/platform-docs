@@ -24,155 +24,34 @@ Listing all posts
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-q
-
-|
-
-Optional
-
-|
-
-Only Posts containing this search string will be returned, matched against
-post title and content  
-  
-type
-
-|
-
-Optional
-
-|
-
-Only posts of this type will be returned: report, revision, comment or alert  
-  
+q| Optional| Only Posts containing this search string will be returned,
+matched against post title and content  
+type| Optional| Only posts of this type will be returned: report, revision,
+comment or alert  
 locale| Optional| Only posts with matching locale will be returned  
-  
-slug
-
-|
-
-Optional
-
-|
-
-Only posts with a matching slug will be returned  
-  
-form_id
-
-|
-
-Optional
-
-|
-
-Only posts with this form_id will be returned  
-  
-user_id
-
-|
-
-Optional
-
-|
-
-Only posts created by this user_id will be returned  
-  
-created_before
-
-|
-
-Optional
-
-|
-
-Returned posts will have a created date smaller than this date  
-  
-created_after
-
-|
-
-Optional
-
-|
-
-Returned posts will have a created date greater than this date  
-  
-updated_before
-
-|
-
-Optional
-
-|
-
-Returned posts will have an updated date smaller than this date  
-  
-updated_after
-
-|
-
-Optional
-
-|
-
-Returned posts will have an updated date greater than this date  
-  
+slug| Optional| Only posts with a matching slug will be returned  
+form_id| Optional| Only posts with this form_id will be returned  
+user_id| Optional| Only posts created by this user_id will be returned  
+created_before| Optional| Returned posts will have a created date smaller than
+this date  
+created_after| Optional| Returned posts will have a created date greater than
+this date  
+updated_before| Optional| Returned posts will have an updated date smaller
+than this date  
+updated_after| Optional| Returned posts will have an updated date greater than
+this date  
 bbox| Optional| Returned posts will have a point attribute within the
 specified bounding box. bbox expects lat lon values as follows:
 west,north,east,south  
 **geometry_attribute**| **Optional**| **Returned GeoJSON will only include geometries for the specified attribute**  
-  
-order
-
-|
-
-Optional
-
-|
-
-Returned posts will be sorted in this order: ASC or DESC. Default: DESC  
-  
-order_by
-
-|
-
-Optional
-
-|
-
-Returned posts will be sorted by this field. Default: created  
-  
-limit
-
-|
-
-Optional
-
-|
-
-Limit number of results returned. Default: 50. Max: 500  
-  
-offset
-
-|
-
-Optional
-
-|
-
-Posts returned will be offset by this number of results  
+order| Optional| Returned posts will be sorted in this order: ASC or DESC.
+Default: DESC  
+order_by| Optional| Returned posts will be sorted by this field. Default:
+created  
+limit| Optional| Limit number of results returned. Default: 50. Max: 500  
+offset| Optional| Posts returned will be offset by this number of results  
   
 ##### Example Request
 
@@ -365,27 +244,9 @@ Get a singlepost
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
-  
-id
-
-|
-
-Required
-
-|
-
-The numerical id of the post being retrieved.  
+id| Required| The numerical id of the post being retrieved.  
   
 ##### Example Request
 
@@ -455,159 +316,38 @@ Get tiled geojson response
 
 ##### Query Parameters
 
-Name
-
-|
-
-Type
-
-|
-
-Description  
-  
+Name| Type| Description  
 ---|---|---  
 **z**| **Required**| **Zoom level**  
 **x**| **Required**| **Tile x offset**  
 **y**| **Required**| **Tile y offset**  
-  
-q
-
-|
-
-Optional
-
-|
-
-Only Posts containing this search string will be returned, matched against
-post title and content  
-  
-type
-
-|
-
-Optional
-
-|
-
-Only posts of this type will be returned: report, revision, comment or alert  
-  
+q| Optional| Only Posts containing this search string will be returned,
+matched against post title and content  
+type| Optional| Only posts of this type will be returned: report, revision,
+comment or alert  
 locale| Optional| Only posts with matching locale will be returned  
-  
-slug
-
-|
-
-Optional
-
-|
-
-Only posts with a matching slug will be returned  
-  
-form_id
-
-|
-
-Optional
-
-|
-
-Only posts with this form_id will be returned  
-  
-user_id
-
-|
-
-Optional
-
-|
-
-Only posts created by this user_id will be returned  
-  
-created_before
-
-|
-
-Optional
-
-|
-
-Returned posts will have a created date smaller than this date  
-  
-created_after
-
-|
-
-Optional
-
-|
-
-Returned posts will have a created date greater than this date  
-  
-updated_before
-
-|
-
-Optional
-
-|
-
-Returned posts will have an updated date smaller than this date  
-  
-updated_after
-
-|
-
-Optional
-
-|
-
-Returned posts will have an updated date greater than this date  
-  
+slug| Optional| Only posts with a matching slug will be returned  
+form_id| Optional| Only posts with this form_id will be returned  
+user_id| Optional| Only posts created by this user_id will be returned  
+created_before| Optional| Returned posts will have a created date smaller than
+this date  
+created_after| Optional| Returned posts will have a created date greater than
+this date  
+updated_before| Optional| Returned posts will have an updated date smaller
+than this date  
+updated_after| Optional| Returned posts will have an updated date greater than
+this date  
 bbox| Optional| Returned posts will have a point attribute within the
 specified bounding box. bbox expects lat lon values as follows:
 west,north,east,south  
 geometry_attribute| Optional| Returned GeoJSON will only include geometries
 for the specified attribute  
-  
-order
-
-|
-
-Optional
-
-|
-
-Returned posts will be sorted in this order: ASC or DESC. Default: DESC  
-  
-order_by
-
-|
-
-Optional
-
-|
-
-Returned posts will be sorted by this field. Default: created  
-  
-limit
-
-|
-
-Optional
-
-|
-
-Limit number of results returned. Default: 50. Max: 500  
-  
-offset
-
-|
-
-Optional
-
-|
-
-Posts returned will be offset by this number of results  
+order| Optional| Returned posts will be sorted in this order: ASC or DESC.
+Default: DESC  
+order_by| Optional| Returned posts will be sorted by this field. Default:
+created  
+limit| Optional| Limit number of results returned. Default: 50. Max: 500  
+offset| Optional| Posts returned will be offset by this number of results  
   
 ##### Example Request
 
