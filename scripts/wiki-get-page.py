@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 from Wiki import *
 import html2text
 from lxml import etree
