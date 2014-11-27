@@ -5,7 +5,7 @@ import json
 
 wiki = Wiki()
 if len(sys.argv) < 4:
-   exit("Usage: " + sys.argv[0] + " spacekey pagetitle markdownfile")
+    exit("Usage: " + sys.argv[0] + " spacekey pagetitle markdownfile")
 
 spacekey = sys.argv[1]
 pagetitle = sys.argv[2]
@@ -18,9 +18,9 @@ md_content = f.read()
 
 # Render markdown via github api
 jdata = json.dumps({
-  "text": md_content,
-  "mode": "markdown",
-  "context": "ushahidi/Lamu"
+    "text": md_content,
+    "mode": "markdown",
+    "context": "ushahidi/Lamu"
 })
 response = urllib2.urlopen("https://api.github.com/markdown", jdata)
 new_content = response.read()
@@ -28,7 +28,7 @@ new_content = response.read()
 # Find current wiki page
 page = wiki.server.confluence2.getPage(wiki.token, spacekey, pagetitle)
 if page is None:
-   exit("Could not find page " + spacekey + ":" + pagetitle)
+    exit("Could not find page " + spacekey + ":" + pagetitle)
 
 # Update title and content
 page['title'] = md_title
