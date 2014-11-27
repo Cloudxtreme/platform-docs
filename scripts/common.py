@@ -74,6 +74,8 @@ def convertToMarkdown(page):
     result = wiki.server.confluence2.renderContent(wiki.token, page['space'], page['id'], '', {"style" : "clean"})
     # Hack to replace syntaxhighlighter macro with vanilla code blocks
     result = re.sub(r'<script type="syntaxhighlighter".*?><!\[CDATA\[(.*?)\]\]></script>', r'<pre>\1</pre>', result, flags=re.DOTALL)
+    # Strip <p> tags out of table headers/cells to avoid breaking markdown table format
+    result = re.sub(r'<(t[hd].*?)><p>(.*?)</p></(t[hd])>', r'<\1>\2</\3>', result)
     return "# " + page['title'] + "\n\n" + h.handle(unicode(result).encode("ascii","ignore"))
 
 
