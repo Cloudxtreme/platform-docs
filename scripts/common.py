@@ -3,6 +3,10 @@ import html2text
 from lxml import etree
 import os
 
+# Should really share this somehow..
+from Wiki import *
+wiki = Wiki()
+
 h = html2text.HTML2Text()
 
 scriptspath = os.path.dirname(os.path.realpath(__file__))
@@ -11,7 +15,8 @@ scriptspath = os.path.dirname(os.path.realpath(__file__))
 xslt_tree = etree.parse(scriptspath + "/confluence2xhtml.xsl")
 transform = etree.XSLT(xslt_tree)
 
-def convertToMarkdown(page):
+# Convert the page content XML to HTML then to markdown
+def convertXMLToMarkdown(page):
     # Wrap Confluence XML in headers and such
     strWrapperTop = """<?xml version="1.0" ?>
         <!DOCTYPE ac:confluence SYSTEM "confluence-all.dtd" [
@@ -61,6 +66,12 @@ def convertToMarkdown(page):
         print "Raw XML input:"
         print page['content']
         raise
+
+    return "# " + page['title'] + "\n\n" + h.handle(unicode(result).encode("ascii","ignore"))
+
+# Get rendered content then convert to markdown
+def convertToMarkdown(page):
+    result = wiki.server.confluence2.renderContent(wiki.token, page['space'], page['id'], '', {"style" : "clean"})
 
     return "# " + page['title'] + "\n\n" + h.handle(unicode(result).encode("ascii","ignore"))
 
